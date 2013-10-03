@@ -31,7 +31,6 @@
 	<link rel=stylesheet href="<?php echo base_url();?>js/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
 
     <link rel=stylesheet href="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.css"  type="text/css">
-    <link rel=stylesheet href="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.print.css"  type="text/css">
 
 	<!-- handrolled css and js -->
 	<script src="<?php echo base_url();?>js/sneezyt.js"></script>

@@ -102,7 +102,7 @@ class Result extends CI_Controller {
         foreach($timeline as $event)
         {
             $temp = new stdClass();
-            $temp->title = $event['Type'] . ' - ' . $event['Name'];
+            $temp->title = ucwords(strtolower($event['Name']));
             $temp->start = $event['Date'] ;
             $temp->allDay = false;
 
