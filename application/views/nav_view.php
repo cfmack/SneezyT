@@ -19,20 +19,27 @@
 	
 	<!-- jTables -->
 	<script src="<?php echo base_url();?>js/jtable.2.3.0/jquery.jtable.min.js"></script>
-	
+
+    <!-- Full Calendar -->
+    <script src="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.min.js">  </script>
+
 	<!-- CSS -->
 	<link rel=stylesheet href="<?php echo base_url();?>js/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>js/jtable.2.3.0/themes/metro/blue/jtable.min.css" type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>js/jtable.2.3.0/themes/metro/darkgray/jtable.css" type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>js/bootstrap/css/bootstrap.css" type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>js/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
-	
+
+    <link rel=stylesheet href="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.css"  type="text/css">
+    <link rel=stylesheet href="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.print.css"  type="text/css">
+
 	<!-- handrolled css and js -->
 	<script src="<?php echo base_url();?>js/sneezyt.js"></script>
 	<link rel=stylesheet href="<?php echo base_url();?>css/sneezy.css" type="text/css" />
 	
 	<!-- Load the Timeline library after reseting the fonts, etc -->
 	<script src="http://static.simile.mit.edu/timeline/api/timeline-api.js" type="text/javascript"></script>
+
 
 </head>
 <body >
@@ -65,6 +72,7 @@
      				  		<li><a href="#" id="nav-timeline">Timeline</a></li>
      				  		<li><a href="#" id="nav-hours-from-reaction">Reaction Time from Food</a></li>
      				  		<li><a href="#" id="nav-type-merge">Merge Types</a></li>
+                            <li><a href="#" id="nav-calendar">Calendar</a></li>
      				  	</ul>
      				  </li>
 				</ul>
@@ -82,6 +90,7 @@
 	<div id="container-timeline"  class="content-category-container hide"></div>
 	<div id="container-hours-from-reaction"  class="content-category-container hide"></div>
 	<div id="container-type-merge"  class="content-category-container hide"></div>
+    <div id="container-calendar"  class="content-category-container hide"></div>
 </div>
 <script>
   	sneezySingleton.getInstance().initializeNavClick();

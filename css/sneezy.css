@@ -86,6 +86,15 @@ h1 {
 	clear: both;
 }
 
+#calendar {
+    width: 900px;
+    margin: 0 auto;
+
+    text-align: center;
+    font-size: 14px;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }

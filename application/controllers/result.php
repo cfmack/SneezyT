@@ -56,11 +56,26 @@ class Result extends CI_Controller {
 		
 		$this->load->view('json_encode', $data);
 	}
-	
+
+    /**
+     * Used to examine jQuery full calendar plug in
+     */
+    public function calendar()
+    {
+        $this->load->helper('url');
+
+        $this->load->model('Result_model');
+        $events = $this->Result_model->timeline_data();
+        $data = array();
+        $data['events'] = json_encode($this->transform_calendar_data($events));
+
+        $this->load->view('calendar_view', $data);
+    }
+
 	public function timeline()
 	{
 		$this->load->helper('url');
-		
+
 		
 		$data = array();
 		$this->load->view('timeline_view', $data);
@@ -74,7 +89,46 @@ class Result extends CI_Controller {
 		$data['json'] = $this->transform_timeline_data($timeline);
 		$this->load->view('json_encode', $data);
 	}
-	
+
+    /**
+     * Toy around with new jQuery Full Calendar plug in
+     *
+     * @param $timeline
+     * @return array
+     */
+    private function transform_calendar_data($timeline)
+    {
+        $events = array();
+        foreach($timeline as $event)
+        {
+            $temp = new stdClass();
+            $temp->title = $event['Type'] . ' - ' . $event['Name'];
+            $temp->start = $event['Date'] ;
+            $temp->allDay = false;
+
+            if ($event['Type'] == 'Reaction')
+            {
+                $temp->color = 'red';
+            }
+            else if ($event['Type'] == 'Environment')
+            {
+                $temp->color = 'green';
+            }
+            else if ($event['Type'] == 'Medicine')
+            {
+                $temp->color = 'white';
+            }
+            else
+            {
+                $temp->color = 'blue';
+            }
+            $events[] = $temp;
+        }
+
+        return $events;
+    }
+
+
 	private function transform_timeline_data($timeline)
 	{
 		$this->load->helper('url');

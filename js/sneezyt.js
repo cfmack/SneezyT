@@ -139,6 +139,16 @@ var sneezySingleton = new function sneezySingleton()
 		   $('.content-pane #container-type-merge').load(base_url + 'index.php/maintain/merge_type',{},function(str){});
 		   $('.navbar-inner .btn').click();
 	   });
+
+       $('#nav-calendar').click(function (e) {
+           $('.nav li').removeClass('active');
+           $(this).closest('li').addClass('active');
+
+           $('.content-pane .content-category-container').addClass('hide');
+           $('.content-pane #container-calendar').removeClass('hide');
+           $('.content-pane #container-calendar').load(base_url + 'index.php/result/calendar',{},function(str){});
+           $('.navbar-inner .btn').click();
+       });
    }
    this.initializeNavClick = initializeNavClick;
  	
