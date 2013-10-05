@@ -2,6 +2,6 @@
 
 <script>
     require(["modules/calendar"], function(calendar) {
-        calendar.initialize( '<?php echo $events; ?>' );
+        calendar.initialize( );
     });
 </script>

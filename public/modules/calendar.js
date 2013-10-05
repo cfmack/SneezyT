@@ -1,8 +1,6 @@
 define(["jquery-ui", "fullcalendar"], function($, fullcalendar) {
     return {
         initialize: function _calendar_initialize(the_events) {
-            console.log('in initialize');
-            /*
             $('#calendar').fullCalendar({
                 theme: true,
                 header: {
@@ -11,9 +9,9 @@ define(["jquery-ui", "fullcalendar"], function($, fullcalendar) {
                     right: 'month,basicWeek,basicDay'
                 },
                 editable: true,
-                events: the_events
+                events: base_url + 'index.php/result/get_calendar_data'
             });
-            */
+            console.log('here');
         }
     }
 });

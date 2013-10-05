@@ -63,14 +63,21 @@ class Result extends CI_Controller {
     public function calendar()
     {
         $this->load->helper('url');
+        $data = array();
+        $this->load->view('calendar_view', $data);
+    }
 
+    public function get_calendar_data()
+    {
         $this->load->model('Result_model');
         $events = $this->Result_model->timeline_data();
         $data = array();
-        $data['events'] = json_encode($this->transform_calendar_data($events));
+        $data['json'] = $this->transform_calendar_data($events);
 
-        $this->load->view('calendar_view', $data);
+        $this->load->helper('url');
+        $this->load->view('json_encode', $data);
     }
+
 
 	public function timeline()
 	{
