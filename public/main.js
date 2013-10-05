@@ -6,8 +6,9 @@ require.config({
         "jquery-ui"     :   'lib/jquery-ui/js/jquery-ui-1.10.2.custom.min',
         "timepicker"    :   'lib/jquery-ui/js/jquery-ui-timepicker-addon',
         "jtable"        :   'lib/jtable/jquery.jtable.min',
-        "fullcalendar"     :   'lib/fullcalendar/fullcalendar.min',
-        "bootstrap"     :   "lib/bootstrap/js/bootstrap"
+        "fullcalendar"  :   'lib/fullcalendar/fullcalendar.min',
+        "bootstrap"     :   "lib/bootstrap/js/bootstrap",
+        "timeline"      :   "http://static.simile.mit.edu/timeline/api/timeline-api"
     },
     shim: {
         "jquery-ui": {
