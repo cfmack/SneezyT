@@ -9,37 +9,18 @@
 	var base_url = '<?php echo base_url();?>';
 	</script>
 	
-	<!-- jQuery -->
-	<script src="<?php echo base_url();?>js/jquery-ui/js/jquery-1.9.1.js"></script>
-	<script src="<?php echo base_url();?>js/jquery-ui/js/jquery-ui-1.10.2.custom.min.js"></script>
-	<script src="<?php echo base_url();?>js/jquery-ui/js/jquery-ui-timepicker-addon.js"></script>
-	
-	<!-- Bootstrap -->
-	<script src="<?php echo base_url();?>js/bootstrap/js/bootstrap.js"></script>
-	
-	<!-- jTables -->
-	<script src="<?php echo base_url();?>js/jtable.2.3.0/jquery.jtable.min.js"></script>
-
-    <!-- Full Calendar -->
-    <script src="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.min.js">  </script>
 
 	<!-- CSS -->
-	<link rel=stylesheet href="<?php echo base_url();?>js/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>js/jtable.2.3.0/themes/metro/blue/jtable.min.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>js/jtable.2.3.0/themes/metro/darkgray/jtable.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>js/bootstrap/css/bootstrap.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>js/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
-
-    <link rel=stylesheet href="<?php echo base_url();?>js/fullcalendar-1.6.4/fullcalendar.css"  type="text/css">
-
-	<!-- handrolled css and js -->
-	<script src="<?php echo base_url();?>js/sneezyt.js"></script>
-	<link rel=stylesheet href="<?php echo base_url();?>css/sneezy.css" type="text/css" />
+	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
+	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/metro/blue/jtable.min.css" type="text/css" />
+	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/metro/darkgray/jtable.css" type="text/css" />
+	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap.css" type="text/css" />
+	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
+    <link rel=stylesheet href="<?php echo base_url();?>public/lib/fullcalendar/fullcalendar.css"  type="text/css">
+	<link rel=stylesheet href="<?php echo base_url();?>public/css/sneezy.css" type="text/css" />
 	
-	<!-- Load the Timeline library after reseting the fonts, etc -->
-	<script src="http://static.simile.mit.edu/timeline/api/timeline-api.js" type="text/javascript"></script>
 
-
+    <script data-main="public/main" src="<?php echo base_url();?>public/require.js"></script>
 </head>
 <body >
 <div class="navbar navbar-inverse">
@@ -92,7 +73,9 @@
     <div id="container-calendar"  class="content-category-container hide"></div>
 </div>
 <script>
-  	sneezySingleton.getInstance().initializeNavClick();
+    require(["modules/nav"], function(nav) {
+        nav.initialize();
+    });
 </script>
 </body>
 </html>

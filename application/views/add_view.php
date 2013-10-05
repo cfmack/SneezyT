@@ -28,5 +28,7 @@
 	<div id="<?php echo $name; ?>-response" class="alert_response"></div>
 </div>
 <script>
-  	sneezySingleton.getInstance().initializeAdd('<?php echo $name; ?>');
+  	require(["modules/category"], function(category) {
+        category.add('<?php echo $name; ?>');
+    });
 </script>

@@ -28,5 +28,7 @@ HTML;
 	?>
 </div>
 <script>
-  	sneezySingleton.getInstance().initializeCategoryButton('<?php echo $name; ?>');
+    require(["modules/category"], function(category) {
+        category.initialize('<?php echo $name; ?>');
+    });
 </script>

@@ -50,5 +50,7 @@
 </div>
 <div id="hours-from-reaction-grid"></div>
 <script>
-  	sneezySingleton.getInstance().initializeHourReactionButton();
+  	require(["modules/hour-reaction"], function(reaction) {
+        reaction.initialize();
+    });
 </script>
