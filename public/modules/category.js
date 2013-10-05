@@ -1,4 +1,4 @@
-define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit-add"], function ($, bootstrap, timepicker, jtable, submit) {
+define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], function ($, bootstrap, timepicker, jtable, submit) {
         return {
             initialize : function _category_initialize(type) {
                 $('#container-' + type + ' .category-button').click({type: type}, function (e) {
@@ -28,7 +28,7 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit-add"],
 
                 // bind on click event to bootstrap button
                 var jqResult = $('#add-' + type + '-submit button').click( function add_onclick() {
-                    submit.send(type);
+                    submit.add(type);
                 });
 
                 // bind autocomplete
@@ -58,6 +58,21 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit-add"],
 
                     fields: columns
 
+                });
+            },
+            merge : function _category_merge() {
+                $( "#type-merge-from" ).autocomplete({
+                    source: base_url + "index.php/food/get_types",
+                    minLength: 1
+                });
+
+                $( "#type-merge-to" ).autocomplete({
+                    source: base_url + "index.php/food/get_types",
+                    minLength: 1
+                });
+
+                $("#type-merge-submit button").click( function() {
+                    submit.merge();
                 });
             }
         };

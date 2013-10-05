@@ -46,7 +46,7 @@ define(["jquery-ui", "bootstrap"], function($, bootstrap) {
                     $(this).closest('li').addClass('active');
 
                     $('.content-pane .content-category-container').addClass('hide');
-                    $('.        content-pane #container-type-merge').removeClass('hide');
+                    $('.content-pane #container-type-merge').removeClass('hide');
                     $('.content-pane #container-type-merge').load(base_url + 'index.php/maintain/merge_type',{},function(str){});
                     $('.navbar-inner .btn').click();
                 });

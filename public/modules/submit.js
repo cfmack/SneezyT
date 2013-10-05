@@ -1,6 +1,6 @@
-define(["jquery-ui", "bootstrap", "timepicker"], function ($, bootstrap, timepicker) {
+define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
     return {
-        send : function _add_submit(type) {
+        add : function _submit_add(type) {
             var p = {};
             p[type] = $('#' + type + '-types').val();
             p[type + '-date'] = $('#' + type + '-date').val();
@@ -20,6 +20,21 @@ define(["jquery-ui", "bootstrap", "timepicker"], function ($, bootstrap, timepic
 
             $( '#' + type + '-note').val('');
             $( '#' + type + '-types').val('').focus();
+        },
+
+        merge : function _submit_merge() {
+            var p = {};
+            p['type-merge-from'] = $('#type-merge-from').val();
+            p['type-merge-to'] = $('#type-merge-to').val();
+
+            $('#merge-response').load(base_url + 'index.php/maintain/merge',p,function(str){
+                setTimeout(function() {
+                    $('#merge-response').empty();
+                } ,1500);
+            });
+
+            $( '#type-merge-to').val('');
+            $( '#type-merge-from').val('').focus();
         }
     };
 });
