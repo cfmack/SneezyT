@@ -16,5 +16,7 @@
 	<div id="merge-response" class="alert_response"></div>
 </div>
 <script>
-	sneezySingleton.getInstance().initializeMergeType();
+    require(["modules/category"], function(category) {
+        category.merge();
+    });
 </script>

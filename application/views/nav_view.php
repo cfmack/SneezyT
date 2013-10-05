@@ -18,7 +18,7 @@
 	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/fullcalendar/fullcalendar.css"  type="text/css">
 	<link rel=stylesheet href="<?php echo base_url();?>public/css/sneezy.css" type="text/css" />
-	
+
 
     <script data-main="public/main" src="<?php echo base_url();?>public/require.js"></script>
 </head>
