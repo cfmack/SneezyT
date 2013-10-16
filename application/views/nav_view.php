@@ -17,6 +17,7 @@
 	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap.css" type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/fullcalendar/fullcalendar.css"  type="text/css">
+    <link rel=stylesheet href="<?php echo base_url();?>public/css/font-awesome/css/font-awesome.css " type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>public/css/sneezy.css" type="text/css" />
 
 
@@ -44,20 +45,32 @@
 				      <li><a href="#" id="nav-environment">Environment</a></li>
 				      <li><a href="#" id="nav-medicine">Medicine</a></li>
 				      <li class="dropdown">
-					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					      Visual
-					      <b class="caret"></b>
-					    </a>
-     				 	<ul class="dropdown-menu">
-     				  		<li><a href="#" id="nav-timeline">Timeline</a></li>
-     				  		<li><a href="#" id="nav-hours-from-reaction">Reaction Time from Food</a></li>
-     				  		<li><a href="#" id="nav-type-merge">Merge Types</a></li>
-                            <li><a href="#" id="nav-calendar">Calendar</a></li>
-     				  	</ul>
+                          <div class="btn-group">
+                              <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> Visual</a>
+                              <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                              <span class="icon-caret-down"></span></a>
+                              <ul class="dropdown-menu">
+                                    <li><a href="#" id="nav-timeline">Timeline</a></li>
+                                    <li><a href="#" id="nav-hours-from-reaction">Reaction Time from Food</a></li>
+                                    <li><a href="#" id="nav-type-merge">Merge Types</a></li>
+                                    <li><a href="#" id="nav-calendar">Calendar</a></li>
+                              </ul>
+                        </div>
      				  </li>
 				</ul>
+                <div class="btn-group">
+                    <a class="btn btn-inverse" href="#" id="nav-logout" title="Logout"><i class="icon-unlock"></i></a>
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" title="Logout" id="nav-logout-menu"><i class="icon-fixed-width icon-unlock"></i> Log out</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="i"></i> Add User</a></li>
+                            <li><a href="#"><i class="i"></i> Edit Profile</a></li>
+                        </ul>
+                </div>
 			</div>
-		</div>
+        </div>
 	</div>
 </div>
 <div class="content-pane">

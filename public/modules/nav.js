@@ -60,6 +60,14 @@ define(["jquery-ui", "bootstrap"], function($, bootstrap) {
                     $('.content-pane #container-calendar').load(base_url + 'index.php/result/calendar',{},function(str){});
                     $('.navbar-inner .btn').click();
                 });
+
+                $('#nav-logout').click(function (e) {
+                    window.location.replace(base_url + 'index.php/welcome/logout');
+                });
+
+                $('#nav-logout-menu').click(function (e) {
+                    window.location.replace(base_url + 'index.php/welcome/logout');
+                });
             }
         }
     }
