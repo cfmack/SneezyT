@@ -62,7 +62,7 @@ define(["jquery-ui", "bootstrap"], function($, bootstrap) {
                 });
 
                 $('#nav-logout').click(function (e) {
-                    window.location.replace(base_url + 'index.php/welcome/logout');
+                    //window.location.replace(base_url + 'index.php/welcome/logout');
                 });
 
                 $('#nav-logout-menu').click(function (e) {
