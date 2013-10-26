@@ -172,7 +172,29 @@ SQL;
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	
+
+    /**
+     * Get all inventory in a list
+     * @param string $index
+     * @param unknown_type $page_size
+     * @param unknown_type $sort
+     */
+    public function download($start_date, $end_date)
+    {
+        $start = $start_date->format("Y-m-d");
+        $end = $end_date->format("Y-m-d");
+
+        $this->db->select( $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
+            ->from($this->table . ' i')
+            ->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
+            ->where('i.IsDeleted', 0)
+            ->where($this->table . "Date BETWEEN '$start' AND '$end'")
+            ->order_by($this->table . "Date", "DESC");
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 	/**
 	 * Soft delete an entry from the list
 	 */

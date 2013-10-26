@@ -6,7 +6,14 @@
 			$active = 'active';
 			foreach($keys as $key)
 			{
-				echo "<button type='button' class='btn btn-mini $active category-button' data-role='$key'>$key</button>";
+                $class = '';
+
+                if ($key == 'download')
+                {
+                    $class = "visible-desktop visible-tablet";
+                }
+
+				echo "<button type='button' class='btn btn-mini $active $class category-button' data-role='$key'>$key</button>";
 				$active = '';
 			}
 		?>
@@ -15,7 +22,7 @@
 		$hide = '';
 		foreach($section as $key=>$value)
 		{
-			log_message('error', $key);
+			log_message('error', 'Here: ' . $key);
 			$html = <<<HTML
 			<div class="container-pane-$key content-pane-container $hide">
 				$value

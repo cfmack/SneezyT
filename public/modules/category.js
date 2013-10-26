@@ -9,6 +9,8 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                     var key = $(this).data('role');
                     $('#container-' + e.data.type + ' .container-pane-' + key).removeClass('hide');
 
+
+
                     // only per click should we load the jtable
                     if (key == 'inventory') {
                         $('#' + type + '-grid').jtable('load');
@@ -37,6 +39,34 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                     minLength: 1
                 });
 
+            },
+            download : function _category_download(type) {
+
+                // date picker
+                if (window.screen.availWidth > 960) {
+                    var startDate = $('#' + type +'-download-start').datepicker({
+                        timeFormat: "hh:mm tt"
+                    });
+
+                    var today = new Date();
+                    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+
+                    startDate.datepicker('setDate', (lastWeek));
+                }
+
+                // date picker
+                if (window.screen.availWidth > 960) {
+                    var endDate = $('#' + type +'-download-end').datepicker({
+                        timeFormat: "hh:mm tt"
+                    });
+
+                    endDate.datepicker('setDate', (new Date()));
+                }
+
+                // bind on click event to bootstrap button
+                var jqResult = $('#category-download-' + type + '-submit button').click( function category_download_onclick() {
+                    submit.download(type);
+                });
             },
             inventory : function _category_inventory(type, columns) {
 

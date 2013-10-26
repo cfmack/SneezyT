@@ -116,7 +116,9 @@ class Welcome extends CI_Controller {
             $json = $this->load->view('inventory_json', array('type'=>ucfirst($type)), true);
             $category_data['section']['inventory'] = $this->load->view('inventory_view', array('name'=>$type, 'json'=>$json), true);
 
+            $category_data['section']['download'] = $this->load->view('category_download_view', array('name'=>$type), true );
             $data[$type] = $this->load->view('category_view', $category_data, true);
+
 
             $hide = true;
         }

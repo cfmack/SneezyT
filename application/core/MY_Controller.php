@@ -139,7 +139,29 @@ class MY_Controller extends CI_Controller {
 		$data['json'] = array("Result" => "OK");
 		$this->load->view('json_encode', $data);
 	}
-	
+
+    public function download($start_date, $end_date)
+    {
+        $this->load->helper('url');
+
+        $model = ucfirst($this->name) . '_model';
+        $this->load->model($model);
+
+        $start_date = DateTime::createFromFormat('m-d-Y', $start_date);
+        $end_date = DateTime::createFromFormat('m-d-Y', $end_date);
+
+        $model = ucfirst($this->name) . '_model';
+        $this->load->model($model);
+
+        $result = $this->$model->download($start_date, $end_date);
+
+        $data = array();
+        $data['header'] = array("Date", ucfirst($this->name), "Note");
+        $data['data'] = $result;
+
+        $this->load->view('csv', $data);
+    }
+
 	/**
 	 * Simplify the view of the type into one div
 	 */
@@ -151,12 +173,14 @@ class MY_Controller extends CI_Controller {
 		$category_data['hide'] = false;
 		
 		$category_data['section'] = array();
-		$category_data['section']['add'] = $this->load->view('add_view', array('header'=>ucfirst($this->name), 'name'=>$this->name), true);
-		
-		$json = $this->load->view('inventory_json', array('type'=>ucfirst($this->name)), true);
+        $category_data['section']['add'] = $this->load->view('add_view', array('header'=>ucfirst($this->name), 'name'=>$this->name), true);
+
+        $json = $this->load->view('inventory_json', array('type'=>ucfirst($this->name)), true);
 		$category_data['section']['inventory'] = $this->load->view('inventory_view', array('name'=>$this->name, 'json'=>$json), true);
-			
-		$this->load->view('category_view', $category_data);
+
+        $category_data['section']['download'] = $this->load->view('category_download_view', array('name'=>$this->name), true );
+
+        $this->load->view('category_view', $category_data);
 	}
 }
 ?>

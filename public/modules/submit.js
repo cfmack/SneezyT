@@ -22,6 +22,30 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             $( '#' + type + '-types').val('').focus();
         },
 
+        download : function _submit_download(type) {
+            var p = {};
+
+            if ($('#' + type + '-download-start-container').is(':visible')) {
+                p[type + '-start'] = $('#' + type + '-download-start').val();
+            }
+            else {
+                p[type + '-start'] = $('#' + type + '-download-start-wheel').val();
+            }
+
+            if ($('#' + type + '-download-end-container').is(':visible')) {
+                p[type + '-end'] = $('#' + type + '-download-end').val();
+            }
+            else {
+                p[type + '-end'] = $('#' + type + '-download-end-wheel').val();
+            }
+
+            p[type + '-start'] = p[type + '-start'].replace(/\//g, '-');
+            p[type + '-end'] = p[type + '-end'].replace(/\//g, '-');
+
+            window.open(base_url + 'index.php/' + type + '/download/' + p[type + '-start'] + '/' + p[type + '-end'] + '/', '_blank');
+
+        },
+
         merge : function _submit_merge() {
             var p = {};
             p['type-merge-from'] = $('#type-merge-from').val();
