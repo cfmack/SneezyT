@@ -156,6 +156,7 @@ class MY_Controller extends CI_Controller {
         $result = $this->$model->download($start_date, $end_date);
 
         $data = array();
+        $data['file'] = 'Sneezy-T-Extract-' . $this->name . '-' . $start_date->format('Ymd');
         $data['header'] = array("Date", ucfirst($this->name), "Note");
         $data['data'] = $result;
 
