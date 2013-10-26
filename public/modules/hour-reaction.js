@@ -15,7 +15,39 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable"], function ($, bootstra
                 minLength: 1
             });
 
-            $('#retrieve-hours-from-reaction-submit').click(function (e) {
+            $('#retrieve-hours-from-reaction-submit .download').click(function (e) {
+                var startDate = $('#hours-from-reaction-start-date').val();
+                startDate = startDate.replace(/\//g, '-');
+                if (startDate == "") {
+                    startDate = '01-01-1970';
+                }
+
+                var endDate = $('#hours-from-reaction-end-date').val();
+                endDate = endDate.replace(/\//g, '-');
+                if (endDate == "") {
+                    endDate = '01-01-2020';
+                }
+
+                var gaps = $('#hours-from-reaction-gap').val();
+                var scale = $('#hours-from-reaction-scale').val();
+                var type = $('#hours-from-reaction-type').val();
+                var min = $('#hours-from-reaction-min-eaten').val();
+                var food = $('#hours-from-reaction-food-filter').val();
+                var initial_hour = $('#hours-from-reaction-initial-hour').val();
+
+                if (food == '')
+                {
+                    food = 'no-filter';
+                }
+                food = encodeURIComponent(food);
+
+
+                var url = base_url + 'index.php/result/download_hours_from_reaction/' + gaps + '/' + scale + '/' + startDate + '/' + endDate + '/' + type + '/' + min + '/' + initial_hour + '/' + food + '/';
+                window.open(url, '_blank');
+
+            });
+
+            $('#retrieve-hours-from-reaction-submit .send').click(function (e) {
                 var startDate = $('#hours-from-reaction-start-date').val();
                 startDate = startDate.replace(/\//g, '-');
                 if (startDate == "") {

@@ -43,8 +43,9 @@
                 </select>
             </div>
         </div>
-		<div id='retrieve-hours-from-reaction-submit' class="clear">
-			<button class="btn btn-primary" type="button">Submit</button>
+		<div id='retrieve-hours-from-reaction-submit'  class="clear">
+			<button class="btn btn-primary send" type="button">Submit</button>
+            <button class="btn btn-primary download" type="button">Download</button>
 		</div>
 	</form>
 </div>
