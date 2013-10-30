@@ -65,7 +65,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#" title="Logout" id="nav-logout-menu"><i class="icon-fixed-width icon-unlock"></i> Log out</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="i"></i> Add User</a></li>
+                            <li><a href="#" id="nav-person"><i class="i"></i> Person Admin</a></li>
                             <li><a href="#"><i class="i"></i> Edit Profile</a></li>
                         </ul>
                 </div>
@@ -84,6 +84,7 @@
 	<div id="container-hours-from-reaction"  class="content-category-container hide"></div>
 	<div id="container-type-merge"  class="content-category-container hide"></div>
     <div id="container-calendar"  class="content-category-container hide"></div>
+    <div id="container-person"  class="content-category-container hide"></div>
 </div>
 <script>
     require(["modules/nav"], function(nav) {

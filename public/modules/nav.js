@@ -1,4 +1,4 @@
-define(["jquery-ui", "bootstrap"], function($, bootstrap) {
+define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
         return {
             initialize: function() {
                 var arr = ['food', 'reaction','environment','medicine'];
@@ -51,13 +51,13 @@ define(["jquery-ui", "bootstrap"], function($, bootstrap) {
                     $('.navbar-inner .btn').click();
                 });
 
-                $('#nav-calendar').click(function (e) {
+                $('#nav-person').click(function (e) {
                     $('.nav li').removeClass('active');
                     $(this).closest('li').addClass('active');
 
                     $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-calendar').removeClass('hide');
-                    $('.content-pane #container-calendar').load(base_url + 'index.php/result/calendar',{},function(str){});
+                    $('.content-pane #container-person').removeClass('hide');
+                    $('.content-pane #container-person').load(base_url + 'index.php/person',{},function(str){});
                     $('.navbar-inner .btn').click();
                 });
 

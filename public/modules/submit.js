@@ -59,6 +59,32 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
 
             $( '#type-merge-to').val('');
             $( '#type-merge-from').val('').focus();
+        },
+
+        person : function _submit_person() {
+            var p = {};
+            p['name'] = $('#person-name').val();
+            if (p['name'].trim() != '')
+            {
+
+                p['default'] = 'false';
+                if ($('#person-default').is(':checked')) {
+                    p['default'] = 'true';
+                }
+                p['note'] = $('#person-note').val();
+
+                $.post( base_url + 'index.php/person/add', p ).done(function( data ) {
+                    $('#person-grid').jtable('load');
+                 });
+
+                $( '#person-note').val('');
+                $( '#person-name').val('').focus();
+            }
+            else
+            {
+                alert('You must add a name');
+            }
         }
+
     };
 });
