@@ -19,8 +19,8 @@ class Welcome extends CI_Controller {
 
     public function index()
     {
-        //$this->welcome();
-        //return; // remove these lines to start working on log ins again
+        $this->welcome();
+        return; // remove these lines to start working on log ins again
 
         if (!$this->ion_auth->logged_in())
         {
@@ -99,7 +99,7 @@ class Welcome extends CI_Controller {
 
     public function welcome()
     {
-        $types = array('food', 'reaction','environment','medicine');
+        $types = array('food'); // only pre-load food 
 
         $data = array();
         $hide = false;

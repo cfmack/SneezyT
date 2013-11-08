@@ -1,19 +1,21 @@
 define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], function ($, bootstrap, timepicker, jtable, submit) {
         return {
             initialize : function _category_initialize(type) {
-                $('#container-' + type + ' .category-button').click({type: type}, function (e) {
-                    // hide all panes
-                    $('#container-' + e.data.type + ' .content-pane-container').addClass('hide');
+                $('#container-' + type + ' .category-button').click({cat: type}, function (e) {
 
                     // how the one that contains the role of this button
                     var key = $(this).data('role');
-                    $('#container-' + e.data.type + ' .container-pane-' + key).removeClass('hide');
+
+                    // hide all panes
+                    $('#container-' + e.data.cat + ' .content-pane-container').addClass('hide');
+
+                    $('#container-' + e.data.cat + ' .container-pane-' + key).removeClass('hide');
 
 
 
                     // only per click should we load the jtable
                     if (key == 'inventory') {
-                        $('#' + type + '-grid').jtable('load');
+                        $('#' + e.data.cat + '-grid').jtable('load');
                     }
 
                 });

@@ -50,7 +50,7 @@
                 "fulltable" : {
                     deps: ['jquery', "jquery-ui"]
                 },
-                "bootstrap": ['jquery']
+                "bootstrap": ['jquery', "jquery-ui"]
             }
         });
     </script>
@@ -109,11 +109,11 @@
 <div class="content-pane">
 	<?php 
 		echo $food;
-		echo $reaction;
-		echo $environment;
-		echo $medicine;	
 	?>
-	<div id="container-timeline"  class="content-category-container hide"></div>
+    <div id="container-reaction" class="content-category-container hide"></div>
+    <div id="container-environment" class="content-category-container hide"></div>
+    <div id="container-medicine" class="content-category-container hide"></div>
+    <div id="container-timeline"  class="content-category-container hide"></div>
 	<div id="container-hours-from-reaction"  class="content-category-container hide"></div>
 	<div id="container-type-merge"  class="content-category-container hide"></div>
     <div id="container-calendar"  class="content-category-container hide"></div>
