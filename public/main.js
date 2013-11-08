@@ -1,0 +1,1 @@
+// stub for require.js - not used here
