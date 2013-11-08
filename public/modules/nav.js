@@ -41,6 +41,16 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     $('.navbar-inner .btn').click();
                 });
 
+                $('#nav-calendar').click(function (e) {
+                    $('.nav li').removeClass('active');
+                    $(this).closest('li').addClass('active');
+
+                    $('.content-pane .content-category-container').addClass('hide');
+                    $('.content-pane #container-calendar').removeClass('hide');
+                    $('.content-pane #container-calendar').load(base_url + 'index.php/result/calendar',{},function(str){});
+                    $('.navbar-inner .btn').click();
+                });
+
                 $('#nav-type-merge').click(function (e) {
                     $('.nav li').removeClass('active');
                     $(this).closest('li').addClass('active');
