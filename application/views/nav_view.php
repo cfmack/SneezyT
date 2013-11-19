@@ -11,14 +11,15 @@
 	
 
 	<!-- CSS -->
-	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/metro/blue/jtable.min.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/metro/darkgray/jtable.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap.css" type="text/css" />
-	<link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
+    <link rel=stylesheet href="<?php echo base_url();?>public/css/reset.css" type="text/css" />
+    <link rel=stylesheet href="<?php echo base_url();?>public/lib/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
+    <link rel=stylesheet href="<?php echo base_url();?>public/css/theme/bootstrap.purple.css" type="text/css" />
+    <link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/lightcolor/customgray/jtable.css" type="text/css" />
+    <link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/fullcalendar/fullcalendar.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/css/font-awesome/css/font-awesome.css " type="text/css" />
 	<link rel=stylesheet href="<?php echo base_url();?>public/css/sneezy.css" type="text/css" />
+
 
 
     <script src="<?php echo base_url();?>public/require.js"></script>
@@ -57,7 +58,7 @@
 
 </head>
 <body >
-<div class="navbar navbar-inverse">
+<div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
 			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -79,8 +80,8 @@
 				      <li><a href="#" id="nav-medicine">Medicine</a></li>
 				      <li class="dropdown">
                           <div class="btn-group">
-                              <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> Visual</a>
-                              <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> Visual</a>
+                              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                               <span class="icon-caret-down"></span></a>
                               <ul class="dropdown-menu">
                                     <li><a href="#" id="nav-timeline">Timeline</a></li>
@@ -92,8 +93,8 @@
      				  </li>
 				</ul>
                 <div class="btn-group">
-                    <a class="btn btn-inverse" href="#" id="nav-logout" title="Logout"><i class="icon-unlock"></i></a>
-                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="btn" href="#" id="nav-logout" title="Logout"><i class="icon-unlock"></i></a>
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="icon-caret-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" title="Logout" id="nav-logout-menu"><i class="icon-fixed-width icon-unlock"></i> Log out</a></li>

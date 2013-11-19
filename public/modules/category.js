@@ -72,8 +72,11 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
             },
             inventory : function _category_inventory(type, columns) {
 
+                var cap = type.toLowerCase();
+                cap = cap.charAt(0).toUpperCase() + cap.substring(1);
+
                 $('#' + type + '-grid').jtable({
-                    title: type + ' Inventory',
+                    title: cap + ' Inventory',
                     paging: true, //Enable paginghttp://192.168.1.10/sneezy/index.php/meal/
                     pageSize: 10, //Set page size (default: 10)
                     sorting: true, //Enable sorting

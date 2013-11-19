@@ -22,7 +22,6 @@
 		$hide = '';
 		foreach($section as $key=>$value)
 		{
-			log_message('error', 'Here: ' . $key);
 			$html = <<<HTML
 			<div class="container-pane-$key content-pane-container $hide">
 				$value
