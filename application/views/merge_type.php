@@ -1,14 +1,16 @@
 <div id="type-merge">
 	<h1>Merge Food Types</h1>
 	<form action="post">
-		<div class="ui-widget">
-  				<label for="type-merge-from">From Type: </label>
-  				<input id="type-merge-from" value="" />
-		</div>
-		<div class="ui-widget">
-			<label for="type-merge-to">To Type:</label>
-  			<input id="type-merge-to" value=""/>
-  		</div>
+        <fieldset class="add-inputs">
+            <div class="ui-widget">
+                    <label for="type-merge-from">From: </label>
+                    <input id="type-merge-from" value="" />
+            </div>
+            <div class="ui-widget">
+                <label for="type-merge-to">To:</label>
+                <input id="type-merge-to" value=""/>
+            </div>
+        </fieldset>
 		<div id='type-merge-submit' class="clear">
 			<button class="btn btn-primary" type="button">Submit</button>
 		</div>

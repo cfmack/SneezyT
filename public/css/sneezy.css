@@ -78,9 +78,12 @@ label {
 .content-category-container h1 {
     line-height: 1;
 }
-.add-inputs label, .add-inputs input{
+.add-inputs label, .add-inputs input, .reaction-by-hour-inputs label, .reaction-by-hour-inputs input{
     display: inline-block;
 }
 .add-inputs label {
     width: 35px;
+}
+.reaction-by-hour-inputs label {
+    width: 120px;
 }
