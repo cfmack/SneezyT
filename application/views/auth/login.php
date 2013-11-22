@@ -1,28 +1,40 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<?php
+    $this->view('metadata');
+?>
+<div id="login-container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Sneezy T</a>
+            </div>
+        </div>
+    </div>
+    <div class="login-inner-container">
 
-<div id="infoMessage"><?php echo $message;?></div>
+        <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("welcome/login");?>
+        <?php echo form_open("welcome/login");?>
+          <fieldset class="reaction-by-hour-inputs">
+              <div class="ui-widget">
+                <?php echo lang('login_identity_label', 'identity');?>
+                <?php echo form_input($identity);?>
+              </div>
 
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+              <div class="ui-widget">
+                <?php echo lang('login_password_label', 'password');?>
+                <?php echo form_input($password);?>
+              </div>
 
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
+              <div class="ui-widget">
+                <?php echo lang('login_remember_label', 'remember');?>
+                <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
+              </div>
+          </fieldset>
 
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
+          <div class="login-button-container" ><?php echo form_submit('submit', lang('login_submit_btn'));?></div>
 
+        <?php echo form_close();?>
+        <div class="login-link-container" ><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></div>
 
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+    </div>
+</div>

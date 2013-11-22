@@ -85,7 +85,7 @@ label {
     width: 35px;
 }
 .reaction-by-hour-inputs label {
-    width: 120dpx;
+    width: 120px;
 }
 #person-add-container input[type=checkbox] {
     margin: 0px;
@@ -93,4 +93,38 @@ label {
 
 #person-add-container .ui-widget label {
     width: 50px;
+}
+
+#login-container {
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#login-container .navbar{
+    margin-bottom: 0px;
+}
+
+#login-container .login-inner-container {
+    padding-top: 20px;
+    height: 120px;
+}
+
+#login-container .login-inner-container input[type=text],
+#login-container .login-inner-container input[type=password] {
+    width: 190px;
+}
+
+#login-container .login-inner-container .login-button-container,
+#login-container .login-inner-container .login-link-container {
+    position:relative;float:right; margin-right: 20px;
+}
+
+#login-container .login-inner-container .login-link-container {
+    clear: right;
+}
+#infoMessage p {
+    text-align: center;
+    color: red;
 }

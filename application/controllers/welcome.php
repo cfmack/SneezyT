@@ -15,12 +15,13 @@ class Welcome extends CI_Controller {
 
         $this->lang->load('auth');
         $this->load->helper('language');
+        $this->load->view('metadata', array(), true);
     }
 
     public function index()
     {
-        $this->welcome();
-        return; // remove these lines to start working on log ins again
+        //$this->welcome();
+        //return; // remove these lines to start working on log ins again
 
         if (!$this->ion_auth->logged_in())
         {
@@ -37,6 +38,7 @@ class Welcome extends CI_Controller {
     {
         $data = array();
         $data['title'] = "Login";
+        $data['head'] = $this->load->view('metadata', array(), true);
 
         //validate form input
         $this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -102,6 +104,7 @@ class Welcome extends CI_Controller {
         $types = array('food'); // only pre-load food 
 
         $data = array();
+        $data['head'] = $this->load->view('metadata', array(), true);
         $hide = false;
         foreach($types as $type)
         {
@@ -122,6 +125,7 @@ class Welcome extends CI_Controller {
 
             $hide = true;
         }
+
 
         $this->load->view('nav_view', $data);
     }
