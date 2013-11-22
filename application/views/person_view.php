@@ -1,21 +1,23 @@
 <h1>Add Person</h1>
-<div>
+<div id="person-add-container">
     <form action="post">
-        <div class="ui-widget">
-            <label for="person-name">Name: </label>
-            <input id="person-name" />
-        </div>
-        <div class="ui-widget">
-            <label for="person-default">Default: </label>
-            <input id="person-default" type="checkbox"/>
-        </div>
-        <div class="ui-widget">
-            <label for="person-note">Note: </label>
-            <textarea id="person-note"></textarea>
-        </div>
-        <div id='add-person-submit' >
-            <button class="btn btn-primary" type="button">Add</button>
-        </div>
+        <fieldset  class="add-inputs">
+            <div class="ui-widget">
+                <label for="person-name">Name: </label>
+                <input id="person-name" />
+            </div>
+            <div class="ui-widget">
+                <label for="person-default">Default: </label>
+                <input id="person-default" type="checkbox"/>
+            </div>
+            <div class="ui-widget">
+                <label for="person-note">Note: </label>
+                <textarea id="person-note"></textarea>
+            </div>
+            <div id='add-person-submit' >
+                <button class="btn btn-primary" type="button">Add</button>
+            </div>
+        </fieldset>
     </form>
 </div>
 <div id="person-grid"></div>

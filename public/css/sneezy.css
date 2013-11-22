@@ -85,5 +85,12 @@ label {
     width: 35px;
 }
 .reaction-by-hour-inputs label {
-    width: 120px;
+    width: 120dpx;
+}
+#person-add-container input[type=checkbox] {
+    margin: 0px;
+}
+
+#person-add-container .ui-widget label {
+    width: 50px;
 }
