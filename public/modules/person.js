@@ -7,6 +7,11 @@ define(["jquery-ui", "bootstrap", "jtable", "modules/submit"], function _person_
                 });
             },
 
+            change : function _person_change() {
+                var jqResult = $('#change-person-submit button').click( function change_onclick() {
+                    submit.change_person();
+                });
+            },
 
             inventory : function _person_inventory(columns) {
 

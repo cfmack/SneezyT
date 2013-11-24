@@ -18,7 +18,7 @@
 			<!-- Be sure to leave the brand out there if you want it shown -->
 			<a class="brand" href="#">Sneezy T</a>
 
-			<!-- Everything you want hidden at 940px or less, place within here -->
+            <!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse">
 				<ul class="nav">
 				      <li class="active"><a href="#" id="nav-food">Food</a></li>
@@ -47,6 +47,7 @@
                             <li><a href="#" title="Logout" id="nav-logout-menu"><i class="icon-fixed-width icon-unlock"></i> Log out</a></li>
                             <li class="divider"></li>
                             <li><a href="#" id="nav-person"><i class="i"></i> Person Admin</a></li>
+                            <li><a href="#"  id="nav-person-change"><i class="i"></i> Change Person</a></li>
                             <li><a href="#"><i class="i"></i> Edit Profile</a></li>
                         </ul>
                 </div>
@@ -66,6 +67,7 @@
 	<div id="container-type-merge"  class="content-category-container hide"></div>
     <div id="container-calendar"  class="content-category-container hide"></div>
     <div id="container-person"  class="content-category-container hide"></div>
+    <div id="container-person-change"  class="content-category-container hide"></div>
 </div>
 <script>
     require(["modules/nav"], function(nav) {

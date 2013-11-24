@@ -77,6 +77,16 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     $('.navbar-inner .btn').click();
                 });
 
+                $('#nav-person-change').click(function (e) {
+                    $('.nav li').removeClass('active');
+                    $(this).closest('li').addClass('active');
+
+                    $('.content-pane .content-category-container').addClass('hide');
+                    $('.content-pane #container-person-change').removeClass('hide');
+                    $('.content-pane #container-person-change').load(base_url + 'index.php/person/change',{},function(str){});
+                    $('.navbar-inner .btn').click();
+                });
+
                 $('#nav-logout').click(function (e) {
                     //window.location.replace(base_url + 'index.php/welcome/logout');
                 });

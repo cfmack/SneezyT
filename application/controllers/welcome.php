@@ -7,8 +7,9 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->library('ion_auth');
         $this->load->library('form_validation');
-        $this->load->helper('url');
+        $this->load->library('session');
 
+        $this->load->helper('url');
         $this->load->database();
 
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
@@ -20,9 +21,11 @@ class Welcome extends CI_Controller {
 
     public function index()
     {
-        //$this->welcome();
-        //return; // remove these lines to start working on log ins again
 
+        return $this->test();
+
+        // remove these lines to start working on log ins again
+        // default dev password is: password
         if (!$this->ion_auth->logged_in())
         {
             //redirect them to the login page
@@ -30,9 +33,25 @@ class Welcome extends CI_Controller {
         }
         else
         {
+
             $this->welcome();
         }
     }
+
+    /**
+     * Test function to get around logging in
+     *
+     * @todo DELETE
+     */
+    private function test()
+    {
+        $this->session->set_userdata('person_id', '1');
+        $this->session->set_userdata('person_name', 'Test');
+        $this->welcome();
+
+        return;
+    }
+
 
 	public function login()
     {
@@ -103,7 +122,12 @@ class Welcome extends CI_Controller {
     {
         $types = array('food'); // only pre-load food 
 
+        $this->load->model('Person_model');
+        $person = $this->Person_model->get_active_person();
+
         $data = array();
+        $data['person_name'] = $person['person_name'];
+
         $data['head'] = $this->load->view('metadata', array(), true);
         $hide = false;
         foreach($types as $type)

@@ -84,6 +84,19 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             {
                 alert('You must add a name');
             }
+        },
+
+        change_person : function _submit_change_person() {
+            var p = {};
+
+            p['PersonId'] = $('input[name=persons]:checked', '#person-change-form').val()
+
+
+            $('#person-change-response').load(base_url +  'index.php/person/do_change',p,function(str){
+                setTimeout(function() {
+                    $('#person-change-response').empty();
+                } ,1500);
+            });
         }
 
     };

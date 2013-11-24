@@ -73,4 +73,39 @@ class Person extends CI_Controller {
         $this->load->view('json_encode', $data);
     }
 
+    public function change()
+    {
+        $data = array();
+
+        $result = $this->Person_model->inventory();
+        $data['persons'] =  $result;
+
+        $active = $this->Person_model->get_active_person();
+        $data['active'] = $active;
+
+        $this->load->view('person_change_view', $data);
+    }
+
+    /**
+     * Set the appropriate session values for the active person
+     *
+     */
+    public function do_change()
+    {
+        $person_id = intval($_POST[ 'PersonId']);
+        $person = $this->Person_model->get_person($person_id);
+
+
+        $data = array();
+        $data['result'] = $this->Person_model->set_active_person($person->PersonId, $person->PersonName);
+
+        $data['alert'] = 'alert-success';
+        if (!$data['result'])
+        {
+            $data['alert'] = 'alert-error';
+        }
+
+        $this->load->view('change_person_result', $data);
+    }
+
 }
