@@ -414,11 +414,27 @@ class Auth extends CI_Controller {
                 'last_name'  => $this->input->post('last_name')
             );
         }
-        if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
+
+        // must use
+        if ($this->form_validation->run() == true && ($id = $this->ion_auth->register($username, $password, $email, $additional_data)) !== FALSE)
         {
+            // if we are using 'use_ci_email' = FALSE, convert the id
+            if (is_array($id) && isset($id['id']))
+            {
+                $id = $id['id'];
+            }
+
+            $this->load->model('Person_model');
+
+            $messages = $this->ion_auth->messages();
+            if (!$this->Person_model->add($username, true, '', $id))
+            {
+                $messages[] = 'Unable to create a person to track.  Make sure you add a Person after you log in.';
+            }
+
             //check to see if we are creating the user
             //redirect them back to the admin page
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            $this->session->set_flashdata('message', $messages);
 
             //redirect them to the login page
             redirect('welcome/login', 'refresh');

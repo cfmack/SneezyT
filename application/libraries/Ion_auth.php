@@ -288,7 +288,7 @@ class Ion_auth
 	/**
 	 * register
 	 *
-	 * @return void
+	 * @return mixed
 	 * @author Mathew
 	 **/
 	public function register($username, $password, $email, $additional_data = array(), $group_ids = array()) //need to test email activation
@@ -346,7 +346,7 @@ class Ion_auth
 			{
 				$this->ion_auth_model->trigger_events(array('post_account_creation', 'post_account_creation_successful', 'activation_email_successful'));
 				$this->set_message('activation_email_successful');
-					return $data;
+			    return $data;
 			}
 			else
 			{

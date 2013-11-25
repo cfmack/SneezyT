@@ -13,14 +13,28 @@ class Person_model extends CI_Model {
 
     }
 
-	public function add($person_name, $is_default, $person_note)
+    /**
+     * @param $person_name
+     * @param $is_default
+     * @param $person_note
+     * @param bool $register_id - should only be set when registering
+     * @return mixed
+     */
+    public function add($person_name, $is_default, $person_note='', $register_id = false)
 	{
+        if (!$register_id)
+        {
+            $register_id = $this->ion_auth->user()->row()->id;
+        }
+
+        $register_id = (int) $register_id;
+
         //log_message('error', print_r($this->ion_auth->user()->row()->id, true));
         $data = array(
             'PersonName'=>filter_var($person_name,FILTER_SANITIZE_STRING),
             'PersonNote' => filter_var($person_note,FILTER_SANITIZE_STRING),
             'IsDefault' => ($is_default?1:0),
-            'UserId' => $this->ion_auth->user()->row()->id
+            'UserId' =>$register_id
         );
 
         if ($is_default)
