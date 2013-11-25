@@ -14,7 +14,7 @@
         <div id="infoMessage"><?php echo $message;?></div>
 
         <?php echo form_open("welcome/login");?>
-          <fieldset class="reaction-by-hour-inputs">
+          <fieldset class="long-inputs">
               <div class="ui-widget">
                 <?php echo lang('login_identity_label', 'identity');?>
                 <?php echo form_input($identity);?>

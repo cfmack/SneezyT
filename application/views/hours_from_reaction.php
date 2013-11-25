@@ -1,7 +1,7 @@
 <div id="hours-from-reaction-controls">
 	<h1>Reaction to Food by Hour</h1>
 	<form action="post">
-        <fieldset class="reaction-by-hour-inputs">
+        <fieldset class="long-inputs">
             <div class="float-left">
                 <div class="ui-widget">
                         <label for="hours-from-reaction-type">Reaction Type: </label>

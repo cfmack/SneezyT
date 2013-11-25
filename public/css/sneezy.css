@@ -78,13 +78,13 @@ label {
 .content-category-container h1 {
     line-height: 1;
 }
-.add-inputs label, .add-inputs input, .reaction-by-hour-inputs label, .reaction-by-hour-inputs input{
+.add-inputs label, .add-inputs input, .long-inputs label, .long-inputs input{
     display: inline-block;
 }
 .add-inputs label {
     width: 35px;
 }
-.reaction-by-hour-inputs label {
+.long-inputs label {
     width: 120px;
 }
 #person-add-container input[type=checkbox] {
@@ -127,4 +127,17 @@ label {
 #infoMessage p {
     text-align: center;
     color: red;
+}
+
+#create-user-container {
+    width: 400px;
+    padding-left: 20px;
+}
+
+#create-user-container #infoMessage p {
+    text-align: left;
+    color: red;
+}
+#create-user-container .button-container {
+    margin-left: 122px;
 }
