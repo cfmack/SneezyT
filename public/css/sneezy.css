@@ -123,6 +123,7 @@ label {
 
 #login-container .login-inner-container .login-link-container {
     clear: right;
+    text-align: right;
 }
 #infoMessage p {
     text-align: center;

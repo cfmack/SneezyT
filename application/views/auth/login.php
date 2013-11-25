@@ -34,7 +34,11 @@
           <div class="login-button-container" ><?php echo form_submit('submit', lang('login_submit_btn'));?></div>
 
         <?php echo form_close();?>
-        <div class="login-link-container" ><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></div>
+        <div class="login-link-container" >
+            <a href="forgot_password"><?php echo lang('login_forgot_password');?></a><br />
+            <a href="../auth/create_user"><?php echo lang('login_register');?></a>
+
+        </div>
 
     </div>
 </div>
