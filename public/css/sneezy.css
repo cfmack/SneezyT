@@ -130,15 +130,19 @@ label {
     color: red;
 }
 
-#create-user-container {
+.auth-container {
     width: 400px;
     padding-left: 20px;
 }
 
-#create-user-container #infoMessage p {
+.auth-container #infoMessage p {
     text-align: left;
     color: red;
 }
-#create-user-container .button-container {
+.auth-container .button-container {
     margin-left: 122px;
+}
+
+#forgot-password-container .long-inputs label{
+    width: 40px;
 }

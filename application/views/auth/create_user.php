@@ -13,7 +13,7 @@ echo $head;
         </div>
     </div>
 </div>
-<div id="create-user-container">
+<div id="create-user-container" class="auth-container">
     <h1><?php echo lang('create_user_heading');?></h1>
     <p><?php echo lang('create_user_subheading');?></p>
 

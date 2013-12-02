@@ -35,9 +35,8 @@
 
         <?php echo form_close();?>
         <div class="login-link-container" >
-            <a href="forgot_password"><?php echo lang('login_forgot_password');?></a><br />
+            <a href="../auth/forgot_password"><?php echo lang('login_forgot_password');?></a><br />
             <a href="../auth/create_user"><?php echo lang('login_register');?></a>
-
         </div>
 
     </div>

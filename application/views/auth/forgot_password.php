@@ -1,15 +1,33 @@
-<h1><?php echo lang('forgot_password_heading');?></h1>
-<p><?php echo sprintf(lang('forgot_password_subheading'), $identity_label);?></p>
+<!DOCTYPE html>
+<html lang="en">
+<?php
+echo $head;
+?>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<body >
 
-<?php echo form_open("auth/forgot_password");?>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Sneezy T</a>
+        </div>
+    </div>
+</div>
+<div id="forgot-password-container" class="auth-container">
+    <h1><?php echo lang('forgot_password_heading');?></h1>
+    <div id="infoMessage"><?php echo $message;?></div>
 
-      <p>
-      	<label for="email"><?php echo sprintf(lang('forgot_password_email_label'), $identity_label);?></label> <br />
-      	<?php echo form_input($email);?>
-      </p>
+    <?php echo form_open("auth/forgot_password");?>
 
-      <p><?php echo form_submit('submit', lang('forgot_password_submit_btn'));?></p>
+    <fieldset class="long-inputs">
+        <div class="ui-widget">
+            <label for="email"><?php echo sprintf(lang('forgot_password_email_label'), $identity_label);?></label>
+            <?php echo form_input($email);?>
+        </div>
+    </fieldset>
+     <div  class="button-container"><?php echo form_submit('submit', lang('forgot_password_submit_btn'));?></div>
 
-<?php echo form_close();?>
+    <?php echo form_close();?>
+</div>
+</body>
+</html>
