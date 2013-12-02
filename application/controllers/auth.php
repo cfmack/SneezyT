@@ -329,7 +329,7 @@ class Auth extends CI_Controller {
 	//activate the user
 	function activate($id, $code=false)
 	{
-		if ($code !== false)
+        if ($code !== false)
 		{
 			$activation = $this->ion_auth->activate($id, $code);
 		}
