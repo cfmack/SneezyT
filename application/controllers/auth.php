@@ -244,7 +244,10 @@ class Auth extends CI_Controller {
 
 		$user = $this->ion_auth->forgotten_password_check($code);
 
-		if ($user)
+        $this->data['head'] = $this->load->view('metadata', array(), true);
+
+
+        if ($user)
 		{
 			//if the code is valid then display the password reset form
 
@@ -286,16 +289,25 @@ class Auth extends CI_Controller {
 			else
 			{
 				// do we have a valid request?
-				if ($this->_valid_csrf_nonce() === FALSE || $user->id != $this->input->post('user_id'))
+				if ($this->_valid_csrf_nonce() === FALSE )
 				{
-
+                    log_message('error', 'Mack Error: CRSF');
 					//something fishy might be up
 					$this->ion_auth->clear_forgotten_password_code($code);
 
 					show_error($this->lang->line('error_csrf'));
 
 				}
-				else
+                else if ($user->id != $this->input->post('user_id'))
+                {
+                    log_message('error', 'Mack Error: User');
+
+                    //something fishy might be up
+                    $this->ion_auth->clear_forgotten_password_code($code);
+
+                    show_error($this->lang->line('error_csrf'));
+                }
+                else
 				{
 					// finally change the password
 					$identity = $user->{$this->config->item('identity', 'ion_auth')};
@@ -724,6 +736,9 @@ class Auth extends CI_Controller {
 
 	function _valid_csrf_nonce()
 	{
+        log_message('error', print_r($_POST,true));
+        log_message('error', print_r($this->session->flashdata('csrfkey'),true));
+        log_message('error', print_r($this->session->flashdata('csrfvalue'),true));
 		if ($this->input->post($this->session->flashdata('csrfkey')) !== FALSE &&
 			$this->input->post($this->session->flashdata('csrfkey')) == $this->session->flashdata('csrfvalue'))
 		{

@@ -1,22 +1,44 @@
-<h1><?php echo lang('reset_password_heading');?></h1>
+<!DOCTYPE html>
+<html lang="en">
+<?php
+echo $head;
+?>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<body >
 
-<?php echo form_open('auth/reset_password/' . $code);?>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Sneezy T</a>
+        </div>
+    </div>
+</div>
+<div id="reset-password-container" class="auth-container">
 
-	<p>
-		<label for="new_password"><?php echo sprintf(lang('reset_password_new_password_label'), $min_password_length);?></label> <br />
-		<?php echo form_input($new_password);?>
-	</p>
+    <h1><?php echo lang('reset_password_heading');?></h1>
 
-	<p>
-		<?php echo lang('reset_password_new_password_confirm_label', 'new_password_confirm');?> <br />
-		<?php echo form_input($new_password_confirm);?>
-	</p>
+    <h4><?php echo sprintf(lang('reset_password_new_password_requirements'), $min_password_length);?></h4>
 
-	<?php echo form_input($user_id);?>
-	<?php echo form_hidden($csrf); ?>
+    <div id="infoMessage"><?php echo $message;?></div>
 
-	<p><?php echo form_submit('submit', lang('reset_password_submit_btn'));?></p>
+    <?php echo form_open('auth/reset_password/' . $code);?>
 
-<?php echo form_close();?>
+    <fieldset class="long-inputs">
+        <div class="ui-widget">
+            <label for="new_password"><?php echo lang('reset_password_new_password_label');?></label>
+		    <?php echo form_input($new_password);?>
+	    </div>
+
+        <div class="ui-widget">
+		    <?php echo lang('reset_password_new_password_confirm_label', 'new_password_confirm');?>
+		    <?php echo form_input($new_password_confirm);?>
+	    </div>
+    </fieldset>
+    <?php echo form_input($user_id);?>
+    <?php echo form_hidden($csrf); ?>
+    <div class="button-container"><?php echo form_submit('submit', lang('reset_password_submit_btn'));?></div>
+
+    <?php echo form_close();?>
+</div>
+</body>
+</html>
