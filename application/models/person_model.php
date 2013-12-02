@@ -39,7 +39,7 @@ class Person_model extends CI_Model {
 
         if ($is_default)
         {
-            $this->reset_default();
+            $this->reset_default($register_id);
         }
 
         $this->db->insert('Person' , $data);
@@ -121,10 +121,15 @@ class Person_model extends CI_Model {
         return (isset($row->PersonId));
     }
 
-    function reset_default()
+    /**
+     * @param $user_id - normally false but needs to be set during registration
+     */
+    function reset_default($user_id = false)
     {
-        $user_id = intval($this->ion_auth->user()->row()->id);
-
+        if (!$user_id)
+        {
+            $user_id = intval($this->ion_auth->user()->row()->id);
+        }
         $data = array(
             'IsDefault' => 0
         );
