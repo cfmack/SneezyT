@@ -90,9 +90,11 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             var p = {};
 
             p['PersonId'] = $('input[name=persons]:checked', '#person-change-form').val()
-
+            p['PersonName'] = $('input[name=persons]:checked', '#person-change-form').next().text();
 
             $('#person-change-response').load(base_url +  'index.php/person/do_change',p,function(str){
+                $('#current-person-notification').text(p['PersonName']);
+
                 setTimeout(function() {
                     $('#person-change-response').empty();
                 } ,1500);

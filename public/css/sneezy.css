@@ -146,3 +146,9 @@ label {
 #forgot-password-container .long-inputs label{
     width: 40px;
 }
+
+#current-person-notification {
+    padding: 10px 15px;
+    float: right;
+    color: white;
+}

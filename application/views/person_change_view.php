@@ -12,7 +12,7 @@
                 }
 
 
-                echo '/> ' . $person['PersonName'] . '</li>';
+                echo '/><span class="person-name">' . $person['PersonName'] . '</span></li>';
             }
             ?>
         </ul>
