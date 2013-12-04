@@ -13,7 +13,7 @@
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css" />
     <link rel=stylesheet href="<?php echo base_url();?>public/css/theme/bootstrap.purple.css" type="text/css" />
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/jtable/themes/lightcolor/customgray/jtable.css" type="text/css" />
-    <link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.min.css"  type="text/css">
+    <link rel=stylesheet href="<?php echo base_url();?>public/lib/bootstrap/css/bootstrap-responsive.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/lib/fullcalendar/fullcalendar.css"  type="text/css">
     <link rel=stylesheet href="<?php echo base_url();?>public/css/font-awesome/css/font-awesome.css " type="text/css" />
     <link rel=stylesheet href="<?php echo base_url();?>public/css/sneezy.css" type="text/css" />
