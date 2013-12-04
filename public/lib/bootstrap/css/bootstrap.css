@@ -4397,6 +4397,11 @@ input[type="submit"].btn.btn-mini {
   width: auto;
 }
 
+.nav-collapse {
+    -webkit-transform: none !important;
+    z-index: 1 !important;
+}
+
 .nav-collapse.collapse {
   height: auto;
   overflow: visible;
