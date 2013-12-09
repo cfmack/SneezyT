@@ -22,8 +22,6 @@ class Welcome extends CI_Controller {
     public function index()
     {
 
-        return $this->test();
-
         // remove these lines to start working on log ins again
         // default dev password is: password
         if (!$this->ion_auth->logged_in())
@@ -130,6 +128,7 @@ class Welcome extends CI_Controller {
 
         $data['head'] = $this->load->view('metadata', array(), true);
         $hide = false;
+
         foreach($types as $type)
         {
             $category_data = array();

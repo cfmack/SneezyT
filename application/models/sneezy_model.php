@@ -5,10 +5,14 @@ class Sneezy_model extends CI_Model {
 	
 	public function __construct()
 	{
-		// Call the Model constructor
+        // Call the Model constructor
 		parent::__construct();
 		$this->define();
-	}
+
+        $this->load->library('session');
+        $this->load->library('ion_auth');
+        $this->load->model('Person_model');
+    }
 
 	/**
 	 * @todo find a way to abstract this
@@ -25,12 +29,23 @@ class Sneezy_model extends CI_Model {
 	 */
 	public function get_types($term)
 	{
+        $userId = $this->ion_auth->user()->row()->id;
+        if (!$userId)
+        {
+            log_message('error', 'Could not find user id', true);
+            throw new Exception('Could not find user id');
+        }
+
+
 		$this->db->select( $this->table  . 'TypeId as id, ' . $this->table . 'Name as value');
 		$this->db->order_by( $this->table . 'Name', 'asc');
 		$this->db->like($this->table . 'Name', $term);
 		$this->db->where('IsDeleted', 0);
-		$query = $this->db->get($this->table . 'Type', 10);
-		return $query->result();
+        $this->db->where('(UserId IS NULL OR UserId = ' . intval($userId) . ') ');
+
+        $query = $this->db->get($this->table . 'Type', 10);
+
+        return $query->result();
 	}
 
 	/**
@@ -48,12 +63,14 @@ class Sneezy_model extends CI_Model {
 			log_message('error', "Error generating new: $selection");
 			return false;
 		}
-		
-		
+
+        $person = $this->Person_model->get_active_person();
+
 		$data = array(
 				$this->table  . 'TypeId' => $type_id ,
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
-				$this->table  . 'Note' => $note
+				$this->table  . 'Note' => $note,
+                'PersonId' => $person['person_id']
 		);
 		
 		$this->db->insert($this->table , $data);
@@ -69,8 +86,19 @@ class Sneezy_model extends CI_Model {
 	 */
 	public function get_type_id($term, $insert=true)
 	{
+        $userId = $this->ion_auth->user()->row()->id;
+        if (!$userId)
+        {
+            log_message('error', 'Could not find user id', true);
+            throw new Exception('Could not find user id');
+        }
+
 		$this->db->select($this->table . 'TypeId, IsDeleted');
-		$query = $this->db->from($this->table . 'Type')->where($this->table . 'Name', $term)->get();
+        $this->db->from($this->table . 'Type');
+        $this->db->where($this->table . 'Name', $term);
+        $this->db->where('(UserId IS NULL OR UserId = ' . intval($userId) . ') ');
+
+        $query = $this->db->get();
 		$row = $query->first_row();
 		
 		$column_name = $this->table . 'TypeId';
@@ -93,7 +121,9 @@ class Sneezy_model extends CI_Model {
 			if ($insert)
 			{
 				$data = array(
-						$this->table . 'Name' => $term
+						$this->table . 'Name' => $term,
+                        'UserId' => $userId
+
 				);
 				
 				if($this->db->insert($this->table . 'Type', $data))
@@ -115,7 +145,12 @@ class Sneezy_model extends CI_Model {
 	 */
 	public function log_merge_request($from_id, $to_id)
 	{
-	
+
+        if (!($this->ion_auth->is_admin()))
+        {
+            throw new Exception("Unauthorized");
+        }
+
 		$date = new DateTime();
 		$today = $date->format("Y-m-d H:i:s");
 		
@@ -142,6 +177,11 @@ SQL;
 	 */
 	public function merge($from_id, $to_id)
 	{
+        if (!($this->ion_auth->is_admin()))
+        {
+            throw new Exception("Unauthorized");
+        }
+
 		$table_type_id = $this->table . 'TypeId';
 		$data = array(
 				$table_type_id => $to_id
@@ -162,11 +202,15 @@ SQL;
 	public function inventory($index, $page_size, $sort_str)
 	{
 		$sort = explode(' ', $sort_str);
-		
-		$this->db->select( $this->table  . 'Id, ' . $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
+
+        $person = $this->Person_model->get_active_person();
+
+
+        $this->db->select( $this->table  . 'Id, ' . $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
 					->from($this->table . ' i')
 					->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
 					->where('i.IsDeleted', 0)
+                    ->where('i.PersonId', $person['person_id'])
 					->order_by(trim($sort[0]), trim($sort[1]))
 					->limit($page_size, $index);
 		$query = $this->db->get();
@@ -184,10 +228,13 @@ SQL;
         $start = $start_date->format("Y-m-d");
         $end = $end_date->format("Y-m-d");
 
+        $person = $this->Person_model->get_active_person();
+
         $this->db->select( $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
             ->from($this->table . ' i')
             ->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
             ->where('i.IsDeleted', 0)
+            ->where('i.PersonId', $person['person_id'])
             ->where($this->table . "Date BETWEEN '$start' AND '$end'")
             ->order_by($this->table . "Date", "DESC");
 
@@ -200,11 +247,14 @@ SQL;
 	 */
 	public function delete($id)
 	{
-		$data = array(
+        $person = $this->Person_model->get_active_person();
+
+        $data = array(
         	'IsDeleted' => 1
 	    );
 
         $this->db->where($this->table . 'Id', intval($id));
+        $this->db->where('PersonId', intval($person['person_id']));
 	    $this->db->update($this->table, $data); 
 	}
 
@@ -213,6 +263,11 @@ SQL;
 	 */
 	public function delete_type($id)
 	{
+        if (!($this->ion_auth->is_admin()))
+        {
+            throw new Exception("Unauthorized");
+        }
+
 		$data = array(
 				'IsDeleted' => 1
 		);
@@ -228,12 +283,15 @@ SQL;
 	 */
 	public function update($id, $note, $date)
 	{
-		$data = array(
+        $person = $this->Person_model->get_active_person();
+
+        $data = array(
            		$this->table . 'Note' => $note,
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
 	        );
 
         $this->db->where($this->table . 'Id', intval($id));
+        $this->db->where('PersonId', intval($person['person_id']));
 	    $this->db->update($this->table, $data); 
 	}
 }

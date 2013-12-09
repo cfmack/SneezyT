@@ -48,7 +48,6 @@
                             <li class="divider"></li>
                             <li><a href="#" id="nav-person"><i class="i"></i> Person Admin</a></li>
                             <li><a href="#"  id="nav-person-change"><i class="i"></i> Change Person</a></li>
-                            <li><a href="#"><i class="i"></i> Edit Profile</a></li>
                         </ul>
                 </div>
                 <div id="current-person-notification" >
