@@ -63,7 +63,7 @@ class Maintain extends CI_Controller {
 	
 	public function get_timeline_data()
 	{
-		$this->load->model('Result_model');
+        $this->load->model('Result_model');
 		$timeline = $this->Result_model->timeline_data();
 		$data = array();
 		$data['json'] = $this->transform_timeline_data($timeline);

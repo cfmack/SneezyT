@@ -144,8 +144,11 @@ class Result extends CI_Controller {
 
     public function get_calendar_data()
     {
+        $start = intval($_GET['start']);
+        $end = intval($_GET['end']);
+
         $this->load->model('Result_model');
-        $events = $this->Result_model->timeline_data();
+        $events = $this->Result_model->timeline_data($start, $end);
         $data = array();
         $data['json'] = $this->transform_calendar_data($events);
 
@@ -165,7 +168,7 @@ class Result extends CI_Controller {
 	
 	public function get_timeline_data()
 	{
-		$this->load->model('Result_model');
+        $this->load->model('Result_model');
 		$timeline = $this->Result_model->timeline_data();
 		$data = array();
 		$data['json'] = $this->transform_timeline_data($timeline);

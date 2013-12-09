@@ -14,7 +14,7 @@ class Result_model extends CI_Model {
         $this->load->model('Person_model');
 	}
 
-	public function timeline_data() 
+	public function timeline_data($start=false, $end=false)
 	{
 		$types = array('Reaction', 'Food', 'Medicine', 'Environment');
 
@@ -24,6 +24,12 @@ class Result_model extends CI_Model {
 		$sql = array();
 		foreach ($types as $type)
 		{
+            $date_where = '';
+            if ($start && $end)
+            {
+                $date_where = " AND ( {$type}Date BETWEEN '" . date('Y-m-d h:m:s', $start) . "' AND '" . date('Y-m-d h:m:s', $end) . "' ) ";
+            }
+
 			$first = substr($type, 0, 1);
 			$subselect = <<<SQL
 select {$type}Id as Id, {$type}Date as Date, {$type}Name as Name, {$type}Note as Note, '{$type}' as Type
@@ -31,11 +37,13 @@ from $type as $first
 join {$type}Type {$first}t on {$first}.{$type}TypeId = {$first}t.{$type}TypeId
 WHERE {$first}.IsDeleted = 0
 AND {$first}.PersonId = {$person_id}
+{$date_where}
 SQL;
 			$sql[] = $subselect;
 		}
-		
-		$query = $this->db->query(implode(' UNION ', $sql));
+
+        $query = $this->db->query(implode(' UNION ', $sql));
+
 		return $query->result_array();
 	}
 	
