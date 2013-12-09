@@ -8,12 +8,19 @@ class Result_model extends CI_Model {
 	{
 		// Call the Model constructor
 		parent::__construct();
+
+        $this->load->library('session');
+        $this->load->library('ion_auth');
+        $this->load->model('Person_model');
 	}
 
 	public function timeline_data() 
 	{
 		$types = array('Reaction', 'Food', 'Medicine', 'Environment');
-		
+
+        $person = $this->Person_model->get_active_person();
+        $person_id = $person['person_id'];
+
 		$sql = array();
 		foreach ($types as $type)
 		{
@@ -23,6 +30,7 @@ select {$type}Id as Id, {$type}Date as Date, {$type}Name as Name, {$type}Note as
 from $type as $first
 join {$type}Type {$first}t on {$first}.{$type}TypeId = {$first}t.{$type}TypeId
 WHERE {$first}.IsDeleted = 0
+AND {$first}.PersonId = {$person_id}
 SQL;
 			$sql[] = $subselect;
 		}
@@ -33,6 +41,9 @@ SQL;
 	
 	function hours_from_reaction($index, $page_size, $num_of_gaps, $scale, $sort, $start_date, $end_date, $reaction_id, $min_eaten, $initial_hour, $food_filter)
 	{
+        $person = $this->Person_model->get_active_person();
+        $person_id = intval($person['person_id']);
+
         //($index, $page_size, $sort_str)
 		$hour_gaps = array();
         $hour = $initial_hour;
@@ -92,6 +103,9 @@ SQL;
 				$sub .= " FROM Food AS f JOIN FoodType ft ON ft.FoodTypeId = f.FoodTypeId  ";
 				$sub .= " WHERE FoodDate >= '$start_date' ";
 				$sub .= " AND FoodDate <= '$end_date' ";
+                $sub .= " AND PersonId = $person_id ";
+                $sub .= " AND f.IsDeleted = 0 ";
+                $sub .= " AND ft.IsDeleted = 0 ";
 				$sub .= " GROUP BY ft.FoodName ";
 				$subs[] = $sub;
 			}
@@ -104,6 +118,11 @@ SQL;
 				$sub .= " WHERE r.ReactionTypeId = $reaction_id ";
 				$sub .= " AND FoodDate >= '$start_date' ";
 				$sub .= " AND FoodDate <= '$end_date' ";
+                $sub .= " AND f.PersonId = $person_id ";
+                $sub .= " AND r.PersonId = $person_id ";
+                $sub .= " AND f.IsDeleted = 0 ";
+                $sub .= " AND r.IsDeleted = 0 ";
+                $sub .= " AND ft.IsDeleted = 0 ";
                 $sub .= " GROUP BY ft.FoodName ";
 				$subs[] = $sub;
 			}

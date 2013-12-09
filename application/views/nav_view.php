@@ -31,9 +31,15 @@
                               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                               <span class="icon-caret-down"></span></a>
                               <ul class="dropdown-menu">
-                                    <li><a href="#" id="nav-timeline">Timeline</a></li>
+
                                     <li><a href="#" id="nav-hours-from-reaction">Reaction Time from Food</a></li>
-                                    <li><a href="#" id="nav-type-merge">Merge Types</a></li>
+                                  <?php
+                                    if ($is_admin)
+                                    {
+                                        echo '<li><a href="#" id="nav-timeline">Timeline</a></li>';
+                                        echo '<li><a href="#" id="nav-type-merge">Merge Types</a></li>';
+                                    }
+                                  ?>
                                     <li><a href="#" id="nav-calendar">Calendar</a></li>
                               </ul>
                         </div>

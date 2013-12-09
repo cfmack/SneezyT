@@ -129,6 +129,12 @@ class Welcome extends CI_Controller {
         $data['head'] = $this->load->view('metadata', array(), true);
         $hide = false;
 
+        $data['is_admin'] = false;
+        if (($this->ion_auth->is_admin()))
+        {
+            $data['is_admin'] = true;
+        }
+
         foreach($types as $type)
         {
             $category_data = array();
