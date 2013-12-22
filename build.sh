@@ -13,6 +13,7 @@ rm -Rf SneezyT/application/logs/*.*
 rm -Rf temp_copy/.git
 rm -Rf temp_copy/.idea
 rm -Rf temp_copy/.gitignore
+mv temp_copy/index.php temp_copy/index.php.temp
 mv temp_copy/application/config/database.php temp_copy/application/config/database.php.temp
 mv temp_copy/application/config/config.php temp_copy/application/config/config.php.temp
 cd temp_copy
