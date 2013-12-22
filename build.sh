@@ -3,13 +3,13 @@
 ZIPFILE="sneezy."$RANDOM".tar.gz"
 
 cd /home/cmack
-rm -f $ZIPFILE
 rm -Rf temp_copy
 mkdir temp_copy
 cp -Rf SneezyT/* temp_copy/
 rm -Rf temp_copy/ddl
 rm -Rf temp_copy/r
 rm -Rf temp_copy/user_guide
+rm -Rf SneezyT/application/logs/*.*
 rm -Rf temp_copy/.git
 rm -Rf temp_copy/.idea
 rm -Rf temp_copy/.gitignore
@@ -19,4 +19,5 @@ cd temp_copy
 tar -zcvf ../$ZIPFILE ./
 cd ..
 rm -Rf temp_copy
-echo $ZIPFILE
+scp $ZIPFILE $1:~/builds
+rm -f $ZIPFILE
