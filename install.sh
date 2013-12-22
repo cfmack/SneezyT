@@ -1,4 +1,6 @@
 #!/bin/bash
 
-tar -zxvf ~/builds/sneezy.25595.tar.gz -C ~/webapps/sneezyt/
- 
+ZIPFILE="sneezy."$RANDOM".tar.gz"
+mv ~/builds/sneezy.tar.gz ~/builds/$ZIPFILE
+tar -zxvf ~/builds/$ZIPFILE -C ~/webapps/sneezyt/
+
