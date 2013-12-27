@@ -96,35 +96,72 @@ label {
 }
 
 #login-container {
-    width: 330px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 #login-container .navbar{
-    margin-bottom: 0px;
+    margin: 0px 0px 5px 0px;
+    padding: 0px;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+#login-container .navbar .navbar-inner{
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
 }
 
 #login-container .login-inner-container {
+    position: absolute;
+    margin: 0px;
+    left: 0px;
+    top: 20px;
     padding-top: 20px;
-    height: 120px;
+    height: 400px;
+    width: 100%;
+    text-align: center;
 }
 
-#login-container .login-inner-container input[type=text],
-#login-container .login-inner-container input[type=password] {
-    width: 190px;
+#login-about {
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
 }
 
-#login-container .login-inner-container .login-button-container,
-#login-container .login-inner-container .login-link-container {
-    position:relative;float:right; margin-right: 20px;
+#login-form {
+    width: 330px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px
 }
 
-#login-container .login-inner-container .login-link-container {
+#login-form input[type=text],
+#login-form input[type=password] {
+    width: 160px;
+}
+
+#login-form .login-button-container,
+#login-form .login-link-container {
+    position:       relative;
+    float:          right;
+    margin-right:   20px;
+}
+
+#login-form .login-link-container {
     clear: right;
     text-align: right;
 }
+
+
+
 #infoMessage p {
     text-align: center;
     color: red;
