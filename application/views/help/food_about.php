@@ -1,0 +1,2 @@
+<h1>About Food</h1>
+Like most sections, there is an <button type='button' class='btn btn-mini'  disabled=true>Add</button>, <button type='button' class='btn btn-mini'  disabled=true>Inventory</button>, and <button type='button' class='btn btn-mini' disabled=true>Export</button> button on the right.

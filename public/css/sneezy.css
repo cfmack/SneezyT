@@ -87,6 +87,40 @@ label {
 .long-inputs label {
     width: 120px;
 }
+
+/* category centering */
+.category-inner-container {
+    position: absolute;
+    margin: 0px;
+    left: 0px;
+    top: 20px;
+    padding-top: 20px;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.category-inner-container .category-inner-left {
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding-right: 20px;
+}
+
+.category-inner-container .category-inner-right {
+    width: 330px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.category-add-container {
+    margin-top: 5px;
+}
+
 #person-add-container input[type=checkbox] {
     margin: 0px;
 }

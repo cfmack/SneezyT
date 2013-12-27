@@ -1,5 +1,5 @@
-<div>
-	<h1>Add <?php echo $header; ?></h1>
+<div class="category-add-container">
+	<h1 class="visible-phone">Add <?php echo $header; ?></h1>
 	<form action="post">
         <fieldset class="add-inputs">
             <div class="ui-widget">
