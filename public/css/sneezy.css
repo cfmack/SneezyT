@@ -223,3 +223,46 @@ label {
     float: right;
     color: white;
 }
+
+#container-home .category-inner-right {
+    border: 1px dashed #d3d3d3;
+}
+
+.welcome-nav {
+    width: 130px;
+    height: 80px;
+    vertical-align: middle;
+    padding-top: 25px;
+}
+
+.welcome-nav-left {
+    margin-left: 20px;
+}
+
+
+.welcome-nav .icon-label {
+    display: inline-block;
+    padding-bottom: 25px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.welcome-nav .fa-cutlery {
+    color: green;
+}
+
+.welcome-nav .fa-medkit {
+    color: red;
+}
+
+.welcome-nav .fa-cloud {
+    color: blue;
+}
+
+.welcome-nav .fa-frown-o {
+    color: purple;
+}
+
+
+
+

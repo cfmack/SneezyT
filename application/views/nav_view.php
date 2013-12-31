@@ -27,9 +27,9 @@
 				      <li><a href="#" id="nav-medicine">Medicine</a></li>
 				      <li class="dropdown">
                           <div class="btn-group">
-                              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> Visual</a>
+                              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> Visual</a>
                               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                              <span class="icon-caret-down"></span></a>
+                              <span class="fa fa-caret-down"></span></a>
                               <ul class="dropdown-menu">
 
                                     <li><a href="#" id="nav-hours-from-reaction">Reaction Time from Food</a></li>
@@ -46,11 +46,11 @@
      				  </li>
 				</ul>
                 <div class="btn-group">
-                    <a class="btn" href="#" id="nav-logout" title="Logout"><i class="icon-unlock"></i></a>
+                    <a class="btn" href="#" id="nav-logout" title="Logout"><i class="fa fa-unlock"></i></a>
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="icon-caret-down"></span></a>
+                        <span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" title="Logout" id="nav-logout-menu"><i class="icon-fixed-width icon-unlock"></i> Log out</a></li>
+                            <li><a href="#" title="Logout" id="nav-logout-menu"><i class="fa fa-fw fa-unlock"></i> Log out</a></li>
                             <li class="divider"></li>
                             <li><a href="#" id="nav-person"><i class="i"></i> Person Admin</a></li>
                             <li><a href="#"  id="nav-person-change"><i class="i"></i> Change Person</a></li>
@@ -66,8 +66,9 @@
 </div>
 <div class="content-pane">
 	<?php 
-		echo $food;
+		echo $home;
 	?>
+    <div id="container-food" class="content-category-container hide"></div>
     <div id="container-reaction" class="content-category-container hide"></div>
     <div id="container-environment" class="content-category-container hide"></div>
     <div id="container-medicine" class="content-category-container hide"></div>

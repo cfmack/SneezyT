@@ -15,7 +15,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
 
                         $('.content-pane .content-category-container').addClass('hide');
                         $('.content-pane #container-' +  e.data.cat).removeClass('hide');
-                        $('.content-pane #container-' +  e.data.cat).html('<i class="icon-spinner icon-spin icon-large"></i>'); // clear out to make sure it re-attaches to buttons
+                        $('.content-pane #container-' +  e.data.cat).html('<i class="fa fa-spinner fa-spin fa-2x"></i>'); // clear out to make sure it re-attaches to buttons
                         $('.content-pane #container-' +  e.data.cat).load(base_url + 'index.php/' +  e.data.cat + '/category',{},function( response, status, xhr ) {
                             if ( status == "error" ) {
                                 var msg = "Sorry but there was an error: ";

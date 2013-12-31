@@ -118,7 +118,6 @@ class Welcome extends CI_Controller {
 
     public function welcome()
     {
-        $types = array('food'); // only pre-load food 
 
         $this->load->model('Person_model');
         $person = $this->Person_model->get_active_person();
@@ -134,6 +133,10 @@ class Welcome extends CI_Controller {
         {
             $data['is_admin'] = true;
         }
+
+        $data['home'] = $this->load->view('home_view', array(), true);
+
+        $types = array(); // only pre-load food
 
         foreach($types as $type)
         {
