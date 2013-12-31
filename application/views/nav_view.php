@@ -16,12 +16,12 @@
 			</a>
 
 			<!-- Be sure to leave the brand out there if you want it shown -->
-			<a class="brand" href="#">Sneezy T</a>
+			<a id="nav-home" class="brand" href="#">Sneezy T</a>
 
             <!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse">
 				<ul class="nav">
-				      <li class="active"><a href="#" id="nav-food">Food</a></li>
+				      <li><a href="#" id="nav-food">Food</a></li>
 				      <li><a href="#" id="nav-reaction">Reaction</a></li>
 				      <li><a href="#" id="nav-environment">Environment</a></li>
 				      <li><a href="#" id="nav-medicine">Medicine</a></li>

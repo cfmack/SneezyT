@@ -136,29 +136,6 @@ class Welcome extends CI_Controller {
 
         $data['home'] = $this->load->view('home_view', array(), true);
 
-        $types = array(); // only pre-load food
-
-        foreach($types as $type)
-        {
-            $category_data = array();
-
-            $category_data['name'] = $type;
-            $category_data['hide'] = $hide;
-
-            $category_data['section'] = array();
-            $category_data['section']['add'] = $this->load->view('add_view', array('header'=>ucfirst($type), 'name'=>$type), true);
-
-            $json = $this->load->view('inventory_json', array('type'=>ucfirst($type)), true);
-            $category_data['section']['inventory'] = $this->load->view('inventory_view', array('name'=>$type, 'json'=>$json), true);
-
-            $category_data['section']['download'] = $this->load->view('category_download_view', array('name'=>$type), true );
-            $data[$type] = $this->load->view('category_view', $category_data, true);
-
-
-            $hide = true;
-        }
-
-
         $this->load->view('nav_view', $data);
     }
 

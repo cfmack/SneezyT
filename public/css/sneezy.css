@@ -233,6 +233,7 @@ label {
     height: 80px;
     vertical-align: middle;
     padding-top: 25px;
+    cursor: pointer;
 }
 
 .welcome-nav-left {

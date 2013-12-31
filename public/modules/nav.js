@@ -27,6 +27,17 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
 
                 }
 
+                /*
+                    Does not quite work yet as it does not work after navigating to a category
+                    I think it has something to do with the "brand" class
+                 */
+                $('#nav-home').click(function (e) {
+                    console.log('clicked home');
+                    $('.nav li').removeClass('active');
+                    $('.content-pane .content-category-container').addClass('hide');
+                    $('#container-home').removeClass('hide');
+                });
+
                 $('#nav-timeline').click(function (e) {
                     $('.nav li').removeClass('active');
                     $(this).closest('li').addClass('active');

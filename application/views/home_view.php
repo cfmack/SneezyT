@@ -15,25 +15,23 @@
             </p>
         </div>
         <div class="category-inner-right" >
-            <div class="welcome-nav pull-left welcome-nav-left" >
+            <div id="welcome-button-food" class="welcome-nav pull-left welcome-nav-left" >
                 <i class="fa fa-4x fa-cutlery"></i> <div class="icon-label">Food</div>
             </div>
-            <div class="welcome-nav pull-right">
+            <div  id="welcome-button-medicine" class="welcome-nav pull-right">
                 <i class="fa fa-4x fa-medkit"></i> <div class="icon-label">Medicine</div>
             </div>
-            <div class="welcome-nav pull-left welcome-nav-left" >
+            <div id="welcome-button-environment" class="welcome-nav pull-left welcome-nav-left" >
                 <i class="fa fa-4x fa-cloud"></i> <div class="icon-label">Environment</div>
             </div>
-            <div class="welcome-nav pull-right">
+            <div id="welcome-button-reaction" class="welcome-nav pull-right">
                 <i class="fa fa-4x fa-frown-o"></i> <div class="icon-label">Reaction</div>
             </div>
         </div>
     </div>
 </div>
 <script>
-/*
-    require(["modules/category"], function() {
+    require(["modules/home"], function(home) {
         home.initialize();
     });
-*/
 </script>
