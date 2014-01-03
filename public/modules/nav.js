@@ -98,9 +98,6 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     $('.navbar-inner .btn').click();
                 });
 
-                $('#nav-logout').click(function (e) {
-                    //window.location.replace(base_url + 'index.php/welcome/logout');
-                });
 
                 $('#nav-logout-menu').click(function (e) {
                     window.location.replace(base_url + 'index.php/welcome/logout');

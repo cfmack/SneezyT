@@ -10,7 +10,7 @@ define(["jquery-ui"], function ($) {
 
             types.forEach(function(type) {
                 $('#welcome-button-' + type).click(function (e) {
-                    // this currently requires the bootstrap menu to open up on android 
+                    // this currently requires the bootstrap menu to open up on android
                     $('#nav-' + type).click();
                 });
             });

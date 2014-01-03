@@ -225,7 +225,8 @@ label {
 }
 
 #container-home .category-inner-right {
-    border: 1px dashed #d3d3d3;
+    background-color: 	#F5E7EC; /* lilac */
+    border: 1px solid #d3d3d3;
 }
 
 .welcome-nav {
