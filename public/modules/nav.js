@@ -1,6 +1,6 @@
 define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
         return {
-            initialize: function() {
+            initialize: function(that) {
                 var arr = ['food', 'reaction','environment','medicine'];
 
                 var length = arr.length;
@@ -102,7 +102,119 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                 $('#nav-logout-menu').click(function (e) {
                     window.location.replace(base_url + 'index.php/welcome/logout');
                 });
-            }
+
+                // run tab function once
+                that.tab();
+
+                // bind tab to body resize
+                $( window ).resize(function() {
+                    that.tab();
+                });
+            },
+
+            tab : function _resizeTab() {
+                //alert('resize');
+
+
+                    // We only want to resize if we have a More menu.
+                if ($('.secondary .dropdown-menu').find('a').size() > 0) {
+
+                        // Establish pseudo constants for resizing thresholds
+                        var WRAP_THRESHOLD = 450;
+                        var MIN_NUM_TABS = 0;
+                        var MAX_NUM_TABS = 4;
+
+                        /*
+                         * This loop removes tabs from the Header and places them in the More dropdown
+                         * until we're at an width under the accepted threshold.
+                         */
+                        var counter = 0;
+                        while (($(window).width() - $('.navbar .primary').width()) < WRAP_THRESHOLD && $('.navbar .primary-tab').size() > MIN_NUM_TABS ) {
+
+                            if (counter >= 10)
+                            {
+                                break;
+                            }
+
+                            counter += 1;
+
+                            // gather the tab elements
+                            var jsPrimaryTab = $('.navbar .primary-tab');
+
+                            var primaryCount = jsPrimaryTab.size();
+                            var jqLastTab = jsPrimaryTab.eq(primaryCount - 1);
+                            var jqLastTabParent = jqLastTab.closest('li');
+
+                            // Apply the correct style
+                            jqLastTab.toggleClass('primary-tab secondary-tab');
+
+                            /*
+                            if (jqLastTabParent.hasClass('active')) {
+                                $('#navbar-more').text(jqLastTab.text());
+                                $('li.dropdown').addClass('active');
+                            }
+                            */
+
+                            // Get the outer HTML.
+                            var html = jqLastTabParent.prop('outerHTML');
+
+                            // Remove the tab from Header
+                            jqLastTabParent.remove();
+
+                            // Place the removed tab in the 'More' Dropdown
+                            $('.secondary .dropdown-menu').prepend(html);
+
+                        }
+
+                        /*
+                         * This loop removes tabs from the More dropdown and places them in the Header
+                         * until we're at an width close to, but not over the accepted threshold.
+                         */
+
+                        counter = 0;
+
+                        while ((($(window).width() - $('.navbar .primary').width()) >= WRAP_THRESHOLD) && ($('.navbar .secondary-tab').size() > MIN_NUM_TABS) && $('.navbar .primary-tab').size() < MAX_NUM_TABS) {
+
+                            if (counter >= 10)
+                            {
+                                break;
+                            }
+
+                            counter += 1;
+
+                            // gather the tab elements
+                            var jsSecondaryTab = $('.navbar .secondary-tab');
+                            var secondaryCount = jsSecondaryTab.size();
+                            var jqLastTab = jsSecondaryTab.eq(0);
+                            var jqLastTabParent = jqLastTab.closest('li');
+
+                            // Apply the correct style
+                            jqLastTab.toggleClass('primary-tab secondary-tab');
+
+                            /*
+                            if (jqLastTab.text() === $('#navbar-more').text()) {
+                                $('#navbar-more').text('More');
+                                $('li.dropdown.active').removeClass('active');
+                                jqLastTabParent.addClass('active');
+                            }
+                            */
+
+                            // Get the outer HTML.
+                            var html = jqLastTabParent.prop('outerHTML');
+
+                            // Remove the tab from 'More' Dropdown, which will remove any bound events as well
+
+                            // this is jacked
+                            jqLastTabParent.remove();
+
+                            // Add tab to header to the left of the 'More' dropdown
+                            $('.navbar .primary').append(html);
+                        }
+
+                }
+
+            // We need to rebind the Tab click handler.
         }
+
     }
-);
+});

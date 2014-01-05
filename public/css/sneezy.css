@@ -265,6 +265,9 @@ label {
     color: purple;
 }
 
-
+.navbar-inner .container {
+    overflow: hidden;
+    height: 40px;
+}
 
 
