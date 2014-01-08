@@ -249,19 +249,19 @@ label {
     padding-left: 10px;
 }
 
-.welcome-nav .fa-cutlery {
+.fa-cutlery {
     color: green;
 }
 
-.welcome-nav .fa-medkit {
+.fa-medkit {
     color: red;
 }
 
-.welcome-nav .fa-cloud {
+.fa-cloud {
     color: blue;
 }
 
-.welcome-nav .fa-frown-o {
+.fa-frown-o {
     color: purple;
 }
 
@@ -269,5 +269,7 @@ label {
     /*overflow: hidden;*/
     height: 40px;
 }
+
+
 
 

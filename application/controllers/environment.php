@@ -6,6 +6,7 @@ class Environment extends MY_Controller
 	public function define() 
 	{
 		$this->name = 'environment';
+        $this->icon = 'fa-cloud';
 	}
 }
 ?>

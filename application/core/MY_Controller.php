@@ -5,7 +5,10 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * Abstract base controller class
  */
 class MY_Controller extends CI_Controller {
-	
+
+    // used for view layer
+    protected $icon;
+
 	public function __construct()
 	{
 		// Call the Controller constructor
@@ -171,10 +174,14 @@ class MY_Controller extends CI_Controller {
 		$category_data = array();
 			
 		$category_data['name'] = $this->name;
-		$category_data['hide'] = false;
+        $category_data['hide'] = false;
 		
 		$category_data['section'] = array();
-        $category_data['section']['add'] = $this->load->view('add_view', array('header'=>ucfirst($this->name), 'name'=>$this->name), true);
+        $category_data['section']['add'] = $this->load->view('add_view', array(
+                                                'header'=>ucfirst($this->name),
+                                                'name'=>$this->name,
+                                                'icon'=>$this->icon),
+                                            true);
 
         $json = $this->load->view('inventory_json', array('type'=>ucfirst($this->name)), true);
 		$category_data['section']['inventory'] = $this->load->view('inventory_view', array('name'=>$this->name, 'json'=>$json), true);

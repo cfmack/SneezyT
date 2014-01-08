@@ -6,6 +6,7 @@ class Food extends MY_Controller
 	public function define() 
 	{
 		$this->name = 'food';
+        $this->icon = 'fa-cutlery';
 	}
 }
 ?>

@@ -6,6 +6,7 @@ class Medicine extends MY_Controller
 	public function define() 
 	{
 		$this->name = 'medicine';
+        $this->icon = 'fa-medkit';
 	}
 }
 ?>

@@ -6,6 +6,7 @@ class Reaction extends MY_Controller
 	public function define() 
 	{
 		$this->name = 'reaction';
+        $this->icon = 'fa-frown-o';
 	}
 }
 ?>
