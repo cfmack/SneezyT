@@ -1,101 +1,11 @@
 define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
         return {
             initialize: function(that) {
-                var arr = ['food', 'reaction','environment','medicine'];
 
-                var length = arr.length;
-                var type = null;
-
-                for (var i = 0; i < length; i++) {
-                    type = arr[i];
-
-                    $('#nav-' + type).click({cat: type}, function (e) {
-                        $('.nav li').removeClass('active');
-                        $(this).closest('li').addClass('active');
-
-                        $('.content-pane .content-category-container').addClass('hide');
-                        $('.content-pane #container-' +  e.data.cat).removeClass('hide');
-                        $('.content-pane #container-' +  e.data.cat).html('<i class="fa fa-spinner fa-spin fa-2x"></i>'); // clear out to make sure it re-attaches to buttons
-                        $('.content-pane #container-' +  e.data.cat).load(base_url + 'index.php/' +  e.data.cat + '/category',{},function( response, status, xhr ) {
-                            if ( status == "error" ) {
-                                var msg = "Sorry but there was an error: ";
-                                console.log( msg + xhr.status + " " + xhr.statusText );
-                            }
-                        });
-                        $('.navbar-inner .btn').click();
-                    });
-
-                }
-
-                /*
-                    Does not quite work yet as it does not work after navigating to a category
-                    I think it has something to do with the "brand" class
-                 */
                 $('#nav-home').click(function (e) {
-                    console.log('clicked home');
                     $('.nav li').removeClass('active');
                     $('.content-pane .content-category-container').addClass('hide');
                     $('#container-home').removeClass('hide');
-                });
-
-                $('#nav-timeline').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-timeline').removeClass('hide');
-                    $('.content-pane #container-timeline').load(base_url + 'index.php/result/timeline',{},function(str){});
-                    $('.navbar-inner .btn').click();
-                });
-
-                $('#nav-hours-from-reaction').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-hours-from-reaction').removeClass('hide');
-                    $('.content-pane #container-hours-from-reaction').load(base_url + 'index.php/result/hours_from_reaction',{},function(str){});
-                    $('.navbar-inner .btn').click();
-                });
-
-                $('#nav-calendar').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-calendar').removeClass('hide');
-                    $('.content-pane #container-calendar').load(base_url + 'index.php/result/calendar',{},function(str){});
-                    $('.navbar-inner .btn').click();
-                });
-
-                $('#nav-type-merge').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-type-merge').removeClass('hide');
-                    $('.content-pane #container-type-merge').load(base_url + 'index.php/maintain/merge_type',{},function(str){});
-                    $('.navbar-inner .btn').click();
-                });
-
-                $('#nav-person').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-person').removeClass('hide');
-                    $('.content-pane #container-person').load(base_url + 'index.php/person',{},function(str){});
-                    $('.navbar-inner .btn').click();
-                });
-
-                $('#nav-person-change').click(function (e) {
-                    $('.nav li').removeClass('active');
-                    $(this).closest('li').addClass('active');
-
-                    $('.content-pane .content-category-container').addClass('hide');
-                    $('.content-pane #container-person-change').removeClass('hide');
-                    $('.content-pane #container-person-change').load(base_url + 'index.php/person/change',{},function(str){});
-                    $('.navbar-inner .btn').click();
                 });
 
 
@@ -104,19 +14,69 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                 });
 
                 // run tab function once
-                that.tab();
+                that.tab(that);
 
                 // bind tab to body resize
                 $( window ).resize(function() {
-                    that.tab();
+                    that.tab(that);
                 });
             },
 
-            tab : function _resizeTab() {
-                //alert('resize');
+            /**
+             * This can probably be moved to backbone or something similar.   To bind a click to a new tab, add it here
+             * @param that
+             *
+             */
+            bindTabs : function _bindTab(that) {
+                var tabs = {
+                    food : base_url + 'index.php/food/category',
+                    reaction : base_url + 'index.php/reaction/category',
+                    environment : base_url + 'index.php/environment/category',
+                    medicine : base_url + 'index.php/medicine/category',
+                    calendar : base_url + 'index.php/result/calendar',
+                    'hours-from-reaction' :  base_url + 'index.php/result/hours_from_reaction',
+                    'type-merge' : base_url + 'index.php/maintain/merge_type',
+                    person : base_url + 'index.php/person',
+                    'person-change' : base_url + 'index.php/person/change'
+                };
 
+                // cycle through all tabs
+                for (var key in tabs){
+                    if (tabs.hasOwnProperty(key)) {
+                        var d = {};
+                        d.section = key;
+                        d.uri = tabs[key];
+                        $('#nav-' + d.section).click(d, that.show);
+                    }
+                }
+            },
 
-                    // We only want to resize if we have a More menu.
+            /**
+             * This is the primary function called when a tab is clicked
+             *
+             * @param event
+             * @private
+             */
+            show : function _showTab(event) {
+                $('.nav li').removeClass('active');
+                $(this).closest('li').addClass('active');
+
+                $('.content-pane .content-category-container').addClass('hide');
+                $('#container-' + event.data.section).removeClass('hide');
+                $('#container-' + event.data.section).html('<i class="fa fa-spinner fa-spin fa-2x"></i>'); // clear out to make sure it re-attaches to buttons
+                $('#container-' + event.data.section).load(event.data.uri,{},function(str){});
+                $('.navbar-inner .btn').click();
+            },
+
+            /**
+             * Run all the tab logic and resize where appropriate based on screen size
+             *
+             * @param that
+             * @private
+             */
+            tab : function _resizeTab(that) {
+
+                // We only want to resize if we have a More menu.
                 if ($('.secondary .dropdown-menu').find('a').size() > 0) {
 
                         // Establish pseudo constants for resizing thresholds
@@ -148,12 +108,6 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                             // Apply the correct style
                             jqLastTab.toggleClass('primary-tab secondary-tab');
 
-                            /*
-                            if (jqLastTabParent.hasClass('active')) {
-                                $('#navbar-more').text(jqLastTab.text());
-                                $('li.dropdown').addClass('active');
-                            }
-                            */
 
                             // Get the outer HTML.
                             var html = jqLastTabParent.prop('outerHTML');
@@ -191,20 +145,10 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                             // Apply the correct style
                             jqLastTab.toggleClass('primary-tab secondary-tab');
 
-                            /*
-                            if (jqLastTab.text() === $('#navbar-more').text()) {
-                                $('#navbar-more').text('More');
-                                $('li.dropdown.active').removeClass('active');
-                                jqLastTabParent.addClass('active');
-                            }
-                            */
-
                             // Get the outer HTML.
                             var html = jqLastTabParent.prop('outerHTML');
 
                             // Remove the tab from 'More' Dropdown, which will remove any bound events as well
-
-                            // this is jacked
                             jqLastTabParent.remove();
 
                             // Add tab to header to the left of the 'More' dropdown
@@ -214,6 +158,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                 }
 
             // We need to rebind the Tab click handler.
+            that.bindTabs(that);
         }
 
     }
