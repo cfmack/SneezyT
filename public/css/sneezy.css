@@ -266,7 +266,7 @@ label {
 }
 
 .navbar-inner .container {
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 40px;
 }
 

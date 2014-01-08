@@ -23,11 +23,12 @@
                 <ul class="nav secondary">
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="#navbar-more">
-                            More
+                            Menu
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" id="nav-hours-from-reaction" class="secondary-tab">Reaction Time from Food</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="nav-hours-from-reaction" class="secondary-tab">Food Analyzer</a></li>
                                   <?php
                                     if ($is_admin)
                                     {
@@ -46,7 +47,7 @@
                 <ul class="nav">
                     <li><a href="#" title="Logout" id="nav-logout-menu"><i class="fa fa-fw fa-unlock"></i></a></li>
                 </ul>
-                <div id="current-person-notification" >
+                <div id="current-person-notification" class="hidden-phone">
                     <? echo $person_name; ?>
                 </div>
 			</div>
