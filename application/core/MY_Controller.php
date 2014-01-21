@@ -171,6 +171,8 @@ class MY_Controller extends CI_Controller {
 	 */
 	public function category() 
 	{
+
+
 		$category_data = array();
 			
 		$category_data['name'] = $this->name;
@@ -178,7 +180,7 @@ class MY_Controller extends CI_Controller {
 		
 		$category_data['section'] = array();
         $category_data['section']['add'] = $this->load->view('add_view', array(
-                                                'header'=>ucfirst($this->name),
+                                                'header'=>$this->build_header(),
                                                 'name'=>$this->name,
                                                 'icon'=>$this->icon),
                                             true);
@@ -190,5 +192,31 @@ class MY_Controller extends CI_Controller {
 
         $this->load->view('category_view', $category_data);
 	}
+
+    /**
+     * Build header string for each section, currently used in add_view
+     *
+     * @return string
+     */
+    private function build_header()
+    {
+        $this->load->model('Person_model');
+
+        $person = $this->Person_model->get_active_person();
+        $header = $person['person_name'];
+
+        if (substr(strtolower($header), -1) == 's')
+        {
+            $header .= "'";
+        }
+        else
+        {
+            $header .= "'s ";
+        }
+
+        $header .= ' ' . ucfirst($this->name);
+
+        return $header;
+    }
 }
 ?>

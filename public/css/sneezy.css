@@ -114,10 +114,11 @@ label {
 }
 
 .category-inner-container .category-inner-right {
-    width: 330px;
+    width: 300px;
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
+    margin-left: 4px;
     text-align: left;
 }
 
