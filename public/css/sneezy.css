@@ -1,6 +1,10 @@
 
 
 /** Start Sneezy CSS **/
+body {
+    padding: 0px;
+}
+
 h1 {
 	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
 	font-size: 2em;
