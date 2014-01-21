@@ -29,6 +29,15 @@ $name->edit 	= false;
 $name_name = $type . 'Name';
 $toJSON->$name_name = $name;
 
+$amount = new stdClass();
+$amount->title	= 'Amount'; // insufficient for reaction
+$amount->create 	= false;
+$amount->edit 	= true;
+
+$amount_name = $type . 'Amount';
+$toJSON->$amount_name = $amount;
+
+
 $note = new stdClass();
 $note->title	= 'Note';
 $note->create 	= false;

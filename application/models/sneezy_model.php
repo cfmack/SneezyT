@@ -208,7 +208,7 @@ SQL;
         $person = $this->Person_model->get_active_person();
 
 
-        $this->db->select( $this->table  . 'Id, ' . $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
+        $this->db->select( $this->table  . 'Id, ' . $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Amount, ' . $this->table . 'Note')
 					->from($this->table . ' i')
 					->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
 					->where('i.IsDeleted', 0)
@@ -283,13 +283,14 @@ SQL;
 	/**
 	 * Update just the note and date
 	 */
-	public function update($id, $note, $date)
+	public function update($id, $note, $date, $amount)
 	{
         $person = $this->Person_model->get_active_person();
 
         $data = array(
            		$this->table . 'Note' => $note,
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
+                $this->table . 'Amount' => $amount
 	        );
 
         $this->db->where($this->table . 'Id', intval($id));
