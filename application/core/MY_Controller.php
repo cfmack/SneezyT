@@ -8,12 +8,13 @@ class MY_Controller extends CI_Controller {
 
     // used for view layer
     protected $icon;
+    protected $amount_label;
 
 	public function __construct()
 	{
 		// Call the Controller constructor
 		parent::__construct();
-		
+		$this->amount_label = "Amount";
 		$this->define();
 	}
 	
@@ -183,7 +184,8 @@ class MY_Controller extends CI_Controller {
         $category_data['section']['add'] = $this->load->view('add_view', array(
                                                 'header'=>$this->build_header(),
                                                 'name'=>$this->name,
-                                                'icon'=>$this->icon),
+                                                'icon'=>$this->icon,
+                                                'amount_label'=>$this->amount_label),
                                             true);
 
         $json = $this->load->view('inventory_json', array('type'=>ucfirst($this->name)), true);

@@ -8,7 +8,7 @@
             </div>
 
             <div class="ui-widget">
-                <label for="<?php echo $name; ?>-amount">Amount: </label>
+                <label for="<?php echo $name; ?>-amount"><?php echo $amount_label; ?>: </label>
                 <input id="<?php echo $name; ?>-amount" />
             </div>
 

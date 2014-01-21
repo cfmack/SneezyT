@@ -7,6 +7,7 @@ class Reaction extends MY_Controller
 	{
 		$this->name = 'reaction';
         $this->icon = 'fa-frown-o';
+        $this->amount_label = 'Severity';
 	}
 }
 ?>
