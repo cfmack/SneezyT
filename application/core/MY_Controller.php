@@ -62,11 +62,12 @@ class MY_Controller extends CI_Controller {
 		$selection = $_POST[$this->name];
 		$date = new DateTime($_POST[$this->name . '-date']);
 		$note = $_POST[$this->name . '-note'];
+        $amount = $_POST[$this->name . '-amount'];
 		
 		$model = ucfirst($this->name) . '_model';
 		$this->load->model($model);
 		
-		$data['result'] = $this->$model->insert($selection, $date, $note);
+		$data['result'] = $this->$model->insert($selection, $date, $note, $amount);
 		$data['alert'] = 'alert-success';
 		if (!$data['result'])
 		{

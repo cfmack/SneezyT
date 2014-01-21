@@ -54,8 +54,9 @@ class Sneezy_model extends CI_Model {
 	 * @param string $selection - selected term
 	 * @param DateTime $date
 	 * @param string $note - optional note
+     * @param string $amount - optional amount
 	 */
-	public function insert($selection, $date, $note)
+	public function insert($selection, $date, $note, $amount)
 	{
 		$type_id = $this->get_type_id($selection);
 		if (!$type_id)
@@ -70,6 +71,7 @@ class Sneezy_model extends CI_Model {
 				$this->table  . 'TypeId' => $type_id ,
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
 				$this->table  . 'Note' => $note,
+                $this->table  . 'Amount' => $amount,
                 'PersonId' => $person['person_id']
 		);
 		

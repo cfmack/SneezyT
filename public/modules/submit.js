@@ -11,6 +11,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                 p[type + '-date'] = $('#' + type + '-date-wheel').val();
             }
             p[type + '-note'] = $('#' + type + '-note').val();
+            p[type + '-amount'] = $('#' + type + '-amount').val();
 
             $('#' + type + '-response').load(base_url + 'index.php/' + type + '/insert',p,function(str){
                 setTimeout(function() {
@@ -19,6 +20,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             });
 
             $( '#' + type + '-note').val('');
+            $( '#' + type + '-amount').val('');
             $( '#' + type + '-types').val('').focus();
         },
 

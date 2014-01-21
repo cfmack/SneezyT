@@ -86,7 +86,8 @@ label {
     display: inline-block;
 }
 .add-inputs label {
-    width: 35px;
+    width: 50px;
+    text-align: right;
 }
 .long-inputs label {
     width: 120px;

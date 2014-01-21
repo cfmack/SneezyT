@@ -8,6 +8,11 @@
             </div>
 
             <div class="ui-widget">
+                <label for="<?php echo $name; ?>-amount">Amount: </label>
+                <input id="<?php echo $name; ?>-amount" />
+            </div>
+
+            <div class="ui-widget">
                     <label for="<?php echo $name; ?>-note">Note: </label>
                     <input id="<?php echo $name; ?>-note" />
             </div>
