@@ -41,6 +41,10 @@
                             <li class="divider"></li>
      				        <li><a href="#" id="nav-person" class="secondary-tab"><i class="i"></i> Person Admin</a></li>
                             <li><a href="#"  id="nav-person-change" class="secondary-tab"><i class="i"></i> Change Person</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"  id="nav-disclaimer" class="secondary-tab"><i class="i"></i> Disclaimer</a></li>
+                            <li><a href="#"  id="nav-license" class="secondary-tab"><i class="i"></i> License</a></li>
+                            <li><a href="#"  id="nav-our-story" class="secondary-tab"><i class="i"></i> Our Story</a></li>
                         </ul>
                     </li>
 				</ul>
@@ -51,7 +55,6 @@
                     <? echo $person_name; ?>
                 </div>
 			</div>
-
         </div>
 	</div>
 </div>
@@ -69,6 +72,9 @@
     <div id="container-calendar"  class="content-category-container hide"></div>
     <div id="container-person"  class="content-category-container hide"></div>
     <div id="container-person-change"  class="content-category-container hide"></div>
+    <div id="container-license"  class="content-category-container hide"></div>
+    <div id="container-disclaimer"  class="content-category-container hide"></div>
+    <div id="container-our-story"  class="content-category-container hide"></div>
 </div>
 <script>
     require(["modules/nav"], function(nav) {

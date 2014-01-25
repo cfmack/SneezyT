@@ -61,7 +61,11 @@ label {
     text-align: right;
 }
 
-
+.blog {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
@@ -235,6 +239,23 @@ label {
     border: 1px solid #d3d3d3;
 }
 
+.footer-link {
+    border-top: 1px solid #d3d3d3;
+    padding-bottom: 10px;
+    clear: both;
+    height: 10px;
+}
+.footer-link ul  {
+    margin: 0px 0px 10px 55px;
+}
+
+.footer-link li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    float: left;
+}
+
 .welcome-nav {
     width: 130px;
     height: 80px;
@@ -246,7 +267,6 @@ label {
 .welcome-nav-left {
     margin-left: 20px;
 }
-
 
 .welcome-nav .icon-label {
     display: inline-block;

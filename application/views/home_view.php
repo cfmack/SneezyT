@@ -25,6 +25,13 @@
             <div id="welcome-button-reaction" class="welcome-nav pull-right">
                 <i class="fa fa-4x fa-frown-o"></i> <div class="icon-label">Reaction</div>
             </div>
+            <div class="footer-link">
+                <ul>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">License</a></li>
+                    <li><a href="#">Our Story</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

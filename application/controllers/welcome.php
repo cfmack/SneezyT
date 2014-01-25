@@ -36,20 +36,6 @@ class Welcome extends CI_Controller {
         }
     }
 
-    /**
-     * Test function to get around logging in
-     *
-     * @todo DELETE
-     */
-    private function test()
-    {
-        $this->session->set_userdata('person_id', '1');
-        $this->session->set_userdata('person_name', 'Test');
-        $this->welcome();
-
-        return;
-    }
-
 
 	public function login()
     {
@@ -139,4 +125,18 @@ class Welcome extends CI_Controller {
         $this->load->view('nav_view', $data);
     }
 
+    public function disclaimer()
+    {
+        $this->load->view('disclaimer_view', array());
+    }
+
+    public function license()
+    {
+        $this->load->view('license_view', array());
+    }
+
+    public function ourstory()
+    {
+        $this->load->view('our_story', array());
+    }
 }

@@ -37,6 +37,9 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     'hours-from-reaction' :  base_url + 'index.php/result/hours_from_reaction',
                     'type-merge' : base_url + 'index.php/maintain/merge_type',
                     person : base_url + 'index.php/person',
+                    'disclaimer' : base_url + 'index.php/welcome/disclaimer',
+                    'license' : base_url + 'index.php/welcome/license',
+                    'our-story' : base_url + 'index.php/welcome/ourstory',
                     'person-change' : base_url + 'index.php/person/change'
                 };
 
