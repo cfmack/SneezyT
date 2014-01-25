@@ -297,5 +297,9 @@ label {
 }
 
 
-
+@media (max-width: 480px) {
+    .blog {
+        width: 300px;
+    }
+}
 
