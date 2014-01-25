@@ -2,19 +2,8 @@
 
 $toJSON = new stdClass();
 
-$id = new stdClass();
-$id->key 	= true;
-$id->title	= 'Id';
-$id->create = false;
-$id->edit 	= false;
-
-$id_name = $type . 'Id';
-$toJSON->$id_name = $id;
-
-
 $date = new stdClass();
 $date->title	= 'Date';
-$date->width	= '23%';
 $date->create = false;
 $date->edit 	= true;
 
@@ -45,6 +34,16 @@ $note->edit 	= true;
 
 $note_name = $type . 'Note';
 $toJSON->$note_name = $note;
+
+$id = new stdClass();
+$id->key 	= true;
+$id->title	= 'Id';
+$id->create = false;
+$id->edit 	= false;
+$id->visibility = 'hidden';
+
+$id_name = $type . 'Id';
+$toJSON->$id_name = $id;
 
 echo json_encode($toJSON);
 ?>
