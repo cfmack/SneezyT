@@ -93,6 +93,16 @@ label {
     width: 50px;
     text-align: right;
 }
+
+.add-submit {
+    margin-left: 10px
+}
+
+.add-question {
+    margin-right: 40px;
+    cursor: pointer;
+}
+
 .long-inputs label {
     width: 120px;
 }
@@ -111,7 +121,7 @@ label {
 
 .category-inner-container .category-inner-left {
     width: 400px;
-    height: 400px;
+
     display: inline-block;
     vertical-align: top;
     text-align: left;
@@ -305,6 +315,10 @@ label {
 
 @media (max-width: 480px) {
     .blog {
+        width: 300px;
+    }
+
+    .category-inner-container .category-inner-left {
         width: 300px;
     }
 }

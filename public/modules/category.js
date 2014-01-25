@@ -42,6 +42,19 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                 });
 
             },
+            toggle : function _category_toggle(type) {
+                $('#container-' + type + ' .toggle-about').click({cat: type}, function (e) {
+                   var $about = $('#container-' + type + ' .category-inner-left ' );
+                   if ($about.hasClass('hidden-phone')) {
+                       $about.removeClass('hidden-phone');
+                       $about.show();
+                   }
+                   else {
+                       $about.addClass('hidden-phone');
+                       $about.hide();
+                   }
+                });
+            },
             download : function _category_download(type) {
 
                 // date picker
