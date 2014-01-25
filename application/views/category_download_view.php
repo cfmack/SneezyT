@@ -7,7 +7,7 @@
             </div>
 
             <div id="<?php echo $name; ?>-download-start-wheel-container" class="ui-widget visible-phone">
-                    <label for="<?php echo $name; ?>-download-start-wheel">Date: </label>
+                    <label for="<?php echo $name; ?>-download-start-wheel">Start: </label>
                     <input id="<?php echo $name; ?>-download-start-wheel" type="datetime-local"/>
             </div>
 
@@ -17,7 +17,7 @@
             </div>
 
             <div id="<?php echo $name; ?>-download-end-wheel-container" class="ui-widget visible-phone">
-                <label for="<?php echo $name; ?>-download-end-wheel">Date: </label>
+                <label for="<?php echo $name; ?>-download-end-wheel">End: </label>
                 <input id="<?php echo $name; ?>-download-end-wheel" type="datetime-local"/>
             </div>
 
