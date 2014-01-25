@@ -39,6 +39,11 @@ class Welcome extends CI_Controller {
 
 	public function login()
     {
+        if ($this->ion_auth->logged_in())
+        {
+            redirect('', 'refresh');
+        }
+
         $data = array();
         $data['title'] = "Login";
         $data['head'] = $this->load->view('metadata', array(), true);
