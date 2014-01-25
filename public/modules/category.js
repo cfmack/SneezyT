@@ -12,10 +12,18 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                     $('#container-' + e.data.cat + ' .container-pane-' + key).removeClass('hide');
 
 
+                    var $left = $('#container-' + type + ' .category-inner-left' );
+                    var $right = $('#container-' + type + ' .category-inner-right' );
 
                     // only per click should we load the jtable
                     if (key == 'inventory') {
                         $('#' + e.data.cat + '-grid').jtable('load');
+                        $left.hide();
+                        $right.css('width', '600px');
+                    }
+                    else {
+                        $left.show();
+                        $right.css('width', '300px');
                     }
 
                 });
@@ -84,6 +92,8 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                 });
             },
             inventory : function _category_inventory(type, columns) {
+
+                var $about = $('#container-' + type + ' .category-inner-left ' );
 
                 var cap = type.toLowerCase();
                 cap = cap.charAt(0).toUpperCase() + cap.substring(1);

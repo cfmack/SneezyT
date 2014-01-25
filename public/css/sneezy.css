@@ -120,12 +120,15 @@ label {
 }
 
 .category-inner-container .category-inner-left {
-    width: 400px;
-
+    width: 300px;
     display: inline-block;
     vertical-align: top;
     text-align: left;
     padding-right: 20px;
+}
+
+#container-home .category-inner-container .category-inner-left {
+    width: 400px;
 }
 
 .category-inner-container .category-inner-right {
