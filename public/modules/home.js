@@ -14,6 +14,19 @@ define(["jquery-ui"], function ($) {
                     $('#nav-' + type).click();
                 });
             });
+
+            var links = [
+                'disclaimer',
+                'license',
+                'our-story'
+            ];
+
+            links.forEach(function(link) {
+                $('#' + link + '-home-link').click(function (e) {
+                    $('#nav-' + link).click();
+                });
+            });
+
         }
     };
 });

@@ -27,9 +27,9 @@
             </div>
             <div class="footer-link">
                 <ul>
-                    <li><a href="#">Disclaimer</a></li>
-                    <li><a href="#">License</a></li>
-                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#" id="disclaimer-home-link">Disclaimer</a></li>
+                    <li><a href="#" id="license-home-link">License</a></li>
+                    <li><a href="#" id="our-story-home-link">Our Story</a></li>
                 </ul>
             </div>
         </div>
