@@ -72,11 +72,19 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                    var $about = $('#container-' + type + ' .category-inner-left ' );
                    if ($about.hasClass('hidden-phone')) {
                        $about.removeClass('hidden-phone');
-                       $about.show();
                    }
                    else {
                        $about.addClass('hidden-phone');
-                       $about.hide();
+                   }
+                   if (window.screen.availWidth > 480) {
+                       if ($about.is(':visible')) {
+                           $about.hide();
+                       }
+                       else {
+                           $about.show();
+                       }
+
+
                    }
                 });
             },
