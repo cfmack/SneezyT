@@ -72,20 +72,20 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                    var $about = $('#container-' + type + ' .category-inner-left ' );
                    if ($about.hasClass('hidden-phone')) {
                        $about.removeClass('hidden-phone');
+                       $about.show();
                    }
                    else {
                        $about.addClass('hidden-phone');
+                       $about.hide();
                    }
-                   if (window.screen.availWidth > 480) {
+                   /*if (window.screen.availWidth > 480) {
                        if ($about.is(':visible')) {
                            $about.hide();
                        }
                        else {
                            $about.show();
                        }
-
-
-                   }
+                   } */
                 });
             },
             download : function _category_download(type) {
@@ -112,8 +112,12 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                 }
 
                 // bind on click event to bootstrap button
-                var jqResult = $('#category-download-' + type + '-submit button').click( function category_download_onclick() {
-                    submit.download(type);
+                $('#category-download-' + type + '-submit button').click( function category_download_onclick() {
+                    submit.download(type, 'download');
+                });
+
+                $('#category-email-' + type + '-submit button').click( function category_email_onclick() {
+                    submit.download(type, 'email');
                 });
             },
             inventory : function _category_inventory(type, columns) {

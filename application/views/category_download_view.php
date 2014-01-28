@@ -21,12 +21,17 @@
                 <input id="<?php echo $name; ?>-download-end-wheel" type="datetime-local"/>
             </div>
 
-            <div id='category-download-<?php echo $name; ?>-submit' >
+            <div id='category-download-<?php echo $name; ?>-submit' class="left-button pull-left" >
                 <button class="btn btn-primary" type="button">Download</button>
+            </div>
+
+            <div id='category-email-<?php echo $name; ?>-submit' class="right-button pull-right" >
+                <button class="btn btn-primary" type="button">Email</button>
             </div>
         </fieldset>
 	</form>
 </div>
+<div id="<?php echo $name; ?>-email-response" class="alert_response"></div>
 <script>
   	require(["modules/category"], function(category) {
         category.download('<?php echo $name; ?>');

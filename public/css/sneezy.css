@@ -109,11 +109,11 @@ label {
     text-align: right;
 }
 
-.add-submit {
+.left-button {
     margin-left: 10px
 }
 
-.add-question {
+.right-button {
     margin-right: 40px;
     cursor: pointer;
 }

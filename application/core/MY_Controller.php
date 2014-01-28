@@ -163,9 +163,21 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('json_encode', $data);
 	}
 
-    public function download($start_date, $end_date)
+    /**
+     * Download the category export range
+     *
+     * @param $start_date
+     * @param $end_date
+     * @param bool $echo - echo to the screen / pop up, opposed to return the data
+     *
+     * @return array
+     */
+    public function download($start_date, $end_date, $echo = true)
     {
         $this->load->helper('url');
+        $this->load->model('Person_model');
+
+        $person = $this->Person_model->get_active_person();
 
         $model = ucfirst($this->name) . '_model';
         $this->load->model($model);
@@ -179,11 +191,79 @@ class MY_Controller extends CI_Controller {
         $result = $this->$model->download($start_date, $end_date);
 
         $data = array();
-        $data['file'] = 'Sneezy-T-Extract-' . $this->name . '-' . $start_date->format('Ymd');
+        $data['file'] = 'Sneezy-T-Extract-' . $person['person_name'] . '-'. $this->name . '-' . $start_date->format('Ymd');
         $data['header'] = array("Date", ucfirst($this->name), "Note");
         $data['data'] = $result;
 
-        $this->load->view('csv', $data);
+        if ($echo)
+        {
+            $this->load->view('csv', $data);
+            return array();
+        }
+        else
+        {
+            return $data;
+        }
+    }
+
+    /**
+     * Email the download / export data to the user logged in
+     *
+     * @param $start_date
+     * @param $end_date
+     */
+    public function email($start_date, $end_date)
+    {
+        $this->load->helper('file');
+        $this->load->library('email');
+
+        $this->load->config('ion_auth', TRUE);
+        $this->load->library('session');
+        $this->load->library('ion_auth');
+
+        $file = $this->download($start_date, $end_date, false);
+
+        $file['file'] = '/tmp/' . $file['file'] . '.csv';
+
+        $data = '';
+        $data .= '"' . implode('","', $file['header']) . '"' . "\n";
+
+        foreach ($file['data'] as $row)
+        {
+            $data .= '"' . implode('","', $row) . '"' . "\n";
+        }
+
+        // free some memory
+        unset($file['data']);
+
+        $alert = array();
+
+        if ( write_file($file['file'], $data, 'wr+') )
+        {
+            $to = $this->session->userdata('email');
+
+            $this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+            $this->email->to($to);
+
+            $this->email->subject('Sneezy T ' . ucfirst($this->name) . ' Extract');
+            $this->email->message('Attached is a file containing the extract from Sneezy T.  Open it in Excel.');
+
+            $this->email->attach($file['file']);
+
+            $this->email->send();
+
+            delete_files($file['file']);
+
+            $alert['type'] = 'alert-success';
+            $alert['message'] = 'Email sent to: ' . $to;
+        }
+        else
+        {
+            $alert['type'] = 'alert-error';
+            $alert['message'] = 'Unable to send email';
+        }
+
+        $this->load->view('email_response_view', $alert);
     }
 
 	/**

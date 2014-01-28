@@ -41,7 +41,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             $( '#' + type + '-types').val('').focus();
         },
 
-        download : function _submit_download(type) {
+        download : function _submit_download(type, action) {
             var p = {};
 
             if ($('#' + type + '-download-start-container').is(':visible')) {
@@ -61,8 +61,16 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             p[type + '-start'] = p[type + '-start'].replace(/\//g, '-');
             p[type + '-end'] = p[type + '-end'].replace(/\//g, '-');
 
-            window.open(base_url + 'index.php/' + type + '/download/' + p[type + '-start'] + '/' + p[type + '-end'] + '/', '_blank');
-
+            if (action == 'download' ) {
+                window.open(base_url + 'index.php/' + type + '/download/' + p[type + '-start'] + '/' + p[type + '-end'] + '/', '_blank');
+            }
+            else {
+                $('#' + type + '-email-response').load(base_url + 'index.php/' + type + '/email/' + p[type + '-start'] + '/' + p[type + '-end'] + '/', p,function(str){
+                    setTimeout(function() {
+                        $('#' + type + '-email-response').empty();
+                    } ,1500);
+                });
+            }
         },
 
         merge : function _submit_merge() {

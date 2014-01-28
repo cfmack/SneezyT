@@ -27,10 +27,10 @@
                     <input id="<?php echo $name; ?>-date-wheel" type="datetime-local"/>
             </div>
 
-            <div id='add-<?php echo $name; ?>-submit' class="add-submit pull-left">
+            <div id='add-<?php echo $name; ?>-submit' class="left-button pull-left">
                 <button class="btn btn-primary" type="button">Submit</button>
             </div>
-            <div class="add-question pull-right ">
+            <div class="right-button pull-right ">
                 <i class="fa fa-2x fa-question-circle toggle-about"></i>
             </div>
         </fieldset>
