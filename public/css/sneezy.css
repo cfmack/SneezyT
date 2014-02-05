@@ -167,6 +167,20 @@ label {
     width: 50px;
 }
 
+#person-add-container .category-inner-container {
+    height: 300px;
+}
+
+#person-grid {
+    position: absolute;
+    margin: 0px;
+    left: 0px;
+    top: 320px;
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
 #login-container {
     margin-left: auto;
     margin-right: auto;
