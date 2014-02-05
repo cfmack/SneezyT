@@ -182,8 +182,23 @@ class MY_Controller extends CI_Controller {
         $model = ucfirst($this->name) . '_model';
         $this->load->model($model);
 
-        $start_date = DateTime::createFromFormat('m-d-Y', $start_date);
-        $end_date = DateTime::createFromFormat('m-d-Y', $end_date);
+        if (stripos($start_date, '-') == 2)
+        {
+            $start_date = DateTime::createFromFormat('m-d-Y', $start_date);
+        }
+        else
+        {
+            $start_date = DateTime::createFromFormat('Y-m-d', $start_date);
+        }
+
+        if (stripos($end_date, '-') == 2)
+        {
+            $end_date = DateTime::createFromFormat('m-d-Y', $end_date);
+        }
+        else
+        {
+            $end_date = DateTime::createFromFormat('Y-m-d', $end_date);
+        }
 
         $model = ucfirst($this->name) . '_model';
         $this->load->model($model);
