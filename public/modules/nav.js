@@ -49,7 +49,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     food : base_url + 'index.php/food/category',
                     reaction : base_url + 'index.php/reaction/category',
                     environment : base_url + 'index.php/environment/category',
-                    medicine : base_url + 'index.php/medicine/category',
+                    treatment : base_url + 'index.php/treatment/category',
                     calendar : base_url + 'index.php/result/calendar',
                     'hours-from-reaction' :  base_url + 'index.php/result/hours_from_reaction',
                     'type-merge' : base_url + 'index.php/maintain/merge_type',

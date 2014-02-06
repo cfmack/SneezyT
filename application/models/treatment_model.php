@@ -1,5 +1,4 @@
 <?php
-
 /*
 Copyright (C) 2013-2014 Charles Mack
 
@@ -18,15 +17,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
 
-
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-class Medicine extends MY_Controller 
-{
-	public function define() 
+class Treatment_model extends Sneezy_model {
+	
+	public function define()
 	{
-		$this->name = 'medicine';
-        $this->icon = 'fa-medkit';
+		$this->table = 'Treatment';
 	}
+
 }
 ?>

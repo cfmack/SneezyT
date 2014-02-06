@@ -216,7 +216,7 @@ class Result extends CI_Controller {
             {
                 $temp->color = 'green';
             }
-            else if ($event['Type'] == 'Medicine')
+            else if ($event['Type'] == 'Treatment')
             {
                 $temp->color = 'white';
             }
@@ -253,7 +253,7 @@ class Result extends CI_Controller {
 			{
 				$temp['icon'] = base_url() . 'js/timeline_2.3.0/timeline_js/images/medium-gray-circle.png';
 			}
-			else if ($line['Type'] == 'Medicine')
+			else if ($line['Type'] == 'Treatment')
 			{
 				$temp['icon'] = base_url() . 'js/timeline_2.3.0/timeline_js/images/dark-green-circle.png';
 			}

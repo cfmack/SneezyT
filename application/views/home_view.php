@@ -19,8 +19,8 @@
             <div id="welcome-button-food" class="welcome-nav pull-left welcome-nav-left" >
                 <i class="fa fa-4x fa-cutlery"></i> <div class="icon-label">Food</div>
             </div>
-            <div  id="welcome-button-medicine" class="welcome-nav pull-right">
-                <i class="fa fa-4x fa-medkit"></i> <div class="icon-label">Medicine</div>
+            <div  id="welcome-button-treatment" class="welcome-nav pull-right">
+                <i class="fa fa-4x fa-medkit"></i> <div class="icon-label">Treatment</div>
             </div>
             <div id="welcome-button-environment" class="welcome-nav pull-left welcome-nav-left" >
                 <i class="fa fa-4x fa-cloud"></i> <div class="icon-label">Environment</div>

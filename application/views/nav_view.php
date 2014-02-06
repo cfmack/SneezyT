@@ -18,7 +18,7 @@
 				      <li><a href="#" id="nav-food" class="primary-tab" >Food</a></li>
 				      <li><a href="#" id="nav-reaction" class="primary-tab">Reaction</a></li>
 				      <li><a href="#" id="nav-environment" class="primary-tab">Environment</a></li>
-				      <li><a href="#" id="nav-medicine" class="primary-tab">Medicine</a></li>
+				      <li><a href="#" id="nav-treatment" class="primary-tab">Treatment</a></li>
                 </ul>
                 <ul class="nav secondary">
                       <li class="dropdown">
@@ -65,7 +65,7 @@
     <div id="container-food" class="content-category-container hide"></div>
     <div id="container-reaction" class="content-category-container hide"></div>
     <div id="container-environment" class="content-category-container hide"></div>
-    <div id="container-medicine" class="content-category-container hide"></div>
+    <div id="container-treatment" class="content-category-container hide"></div>
     <div id="container-timeline"  class="content-category-container hide"></div>
 	<div id="container-hours-from-reaction"  class="content-category-container hide"></div>
 	<div id="container-type-merge"  class="content-category-container hide"></div>

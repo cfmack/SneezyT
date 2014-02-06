@@ -21,7 +21,7 @@ define(["jquery-ui"], function ($) {
         initialize : function _home_initialize() {
             var types = [
                 'food',
-                'medicine',
+                'treatment',
                 'environment',
                 'reaction'
             ];

@@ -33,7 +33,7 @@ class Result_model extends CI_Model {
 
 	public function timeline_data($start=false, $end=false)
 	{
-		$types = array('Reaction', 'Food', 'Medicine', 'Environment');
+		$types = array('Reaction', 'Food', 'Treatment', 'Environment');
 
         $person = $this->Person_model->get_active_person();
         $person_id = $person['person_id'];
