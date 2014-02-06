@@ -210,19 +210,19 @@ class Result extends CI_Controller {
 
             if ($event['Type'] == 'Reaction')
             {
-                $temp->color = 'red';
+                $temp->color = 'purple';
             }
             else if ($event['Type'] == 'Environment')
             {
-                $temp->color = 'green';
+                $temp->color = 'blue';
             }
             else if ($event['Type'] == 'Treatment')
             {
-                $temp->color = 'white';
+                $temp->color = 'red';
             }
             else
             {
-                $temp->color = 'blue';
+                $temp->color = 'green';
             }
             $events[] = $temp;
         }
