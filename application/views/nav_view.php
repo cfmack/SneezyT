@@ -44,7 +44,9 @@
                             <li class="divider"></li>
                             <li><a href="#"  id="nav-disclaimer" class="secondary-tab"><i class="i"></i> Disclaimer</a></li>
                             <li><a href="#"  id="nav-license" class="secondary-tab"><i class="i"></i> License</a></li>
+                            <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="nav-faq" class="secondary-tab"><i class="i"></i> FAQ</a></li>
                             <li><a href="#"  id="nav-our-story" class="secondary-tab"><i class="i"></i> Our Story</a></li>
+                            <li><a href="http://sneezyt.wordpress.com/"  target="_blank"  id="nav-blog" class="secondary-tab"><i class="i"></i> Blog</a></li>
                         </ul>
                     </li>
 				</ul>
