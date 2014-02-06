@@ -207,7 +207,7 @@ class MY_Controller extends CI_Controller {
 
         $data = array();
         $data['file'] = 'Sneezy-T-Extract-' . $person['person_name'] . '-'. $this->name . '-' . $start_date->format('Ymd');
-        $data['header'] = array("Date", ucfirst($this->name), "Note");
+        $data['header'] = array("Date", ucfirst($this->name), "Amount", "Note");
         $data['data'] = $result;
 
         if ($echo)

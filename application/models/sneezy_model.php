@@ -250,7 +250,7 @@ SQL;
 
         $person = $this->Person_model->get_active_person();
 
-        $this->db->select( $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Note')
+        $this->db->select( $this->table . 'Date, ' . $this->table . 'Name, ' . $this->table . 'Amount, ' . $this->table . 'Note')
             ->from($this->table . ' i')
             ->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
             ->where('i.IsDeleted', 0)
