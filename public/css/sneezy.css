@@ -155,9 +155,23 @@ label {
     text-align: left;
 }
 
+.category-inner-container .category-inner-right .btn-group {
+    float: right;
+    margin-right: 35px;
+}
+
 .category-inner-left a {
     color: purple;
 }
+
+.content-pane-container {
+    margin-top: 25px;
+}
+
+.content-pane-container fieldset {
+    width: 100%;
+}
+
 
 #login-about a {
     color: purple;
@@ -360,6 +374,14 @@ label {
     }
     #person-grid {
         width: 100%;
+    }
+
+    .category-inner-container .category-inner-right .btn-group {
+        float: left;
+        margin-right: 0px;
+    }
+    .category-add-container .visible-phone {
+        padding-top: 5px;
     }
 }
 
