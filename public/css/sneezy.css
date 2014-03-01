@@ -180,13 +180,10 @@ label {
 }
 
 #person-grid {
-    position: absolute;
-    margin: 0px;
-    left: 0px;
-    top: 320px;
-    padding-top: 20px;
-    width: 100%;
+    width: 80%;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #login-container {
@@ -360,6 +357,9 @@ label {
 
     .category-inner-container .category-inner-left {
         width: 300px;
+    }
+    #person-grid {
+        width: 100%;
     }
 }
 

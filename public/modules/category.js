@@ -78,14 +78,6 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                        $about.addClass('hidden-phone');
                        $about.hide();
                    }
-                   /*if (window.screen.availWidth > 480) {
-                       if ($about.is(':visible')) {
-                           $about.hide();
-                       }
-                       else {
-                           $about.show();
-                       }
-                   } */
                 });
             },
             download : function _category_download(type) {

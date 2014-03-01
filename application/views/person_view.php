@@ -24,11 +24,12 @@
                     <div id='add-person-submit' >
                         <button class="btn btn-primary" type="button">Add</button>
                     </div>
+
                 </fieldset>
             </form>
         </div>
+        <div id="person-grid"></div>
     </div>
-    <div id="person-grid"></div>
 </div>
 
 <div id="person-response"></div>
