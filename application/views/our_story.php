@@ -28,4 +28,7 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
     </form>
     </p>
+    <p>
+        You can read more about our adventures with EoE and find common recipes at the <a href="http://sneezyt.wordpress.com">Sneezy T Blog</a>
+    </p>
 </div>
