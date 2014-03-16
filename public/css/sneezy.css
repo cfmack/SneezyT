@@ -301,6 +301,20 @@ label {
     color: white;
 }
 
+#logout {
+    padding: 10px 15px;
+    float: right;
+    color: white;
+}
+
+#logout a {
+    color: white;
+}
+
+#logout a:hover {
+    color: #F5B843;
+}
+
 #container-home .category-inner-right {
     background-color: 	#F5E7EC; /* lilac */
     border: 1px solid #d3d3d3;

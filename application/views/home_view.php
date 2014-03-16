@@ -25,23 +25,23 @@
             <div class="welcome-title visible-phone" >
                 <h3>Start tracking ...</h3>
             </div>
-            <div id="welcome-button-food" class="welcome-nav pull-left welcome-nav-left" >
+            <div id="welcome-button-food" class="welcome-nav pull-left welcome-nav-left" title="Food">
                 <i class="fa fa-4x fa-cutlery"></i> <div class="icon-label">Food</div>
             </div>
-            <div  id="welcome-button-treatment" class="welcome-nav pull-right">
+            <div  id="welcome-button-treatment" class="welcome-nav pull-right" title="Treatment">
                 <i class="fa fa-4x fa-medkit"></i> <div class="icon-label">Treatment</div>
             </div>
-            <div id="welcome-button-environment" class="welcome-nav pull-left welcome-nav-left" >
+            <div id="welcome-button-environment" class="welcome-nav pull-left welcome-nav-left" title="Environment">
                 <i class="fa fa-4x fa-cloud"></i> <div class="icon-label">Environment</div>
             </div>
-            <div id="welcome-button-reaction" class="welcome-nav pull-right">
+            <div id="welcome-button-reaction" class="welcome-nav pull-right" title="Reaction">
                 <i class="fa fa-4x fa-frown-o"></i> <div class="icon-label">Reaction</div>
             </div>
             <div class="footer-link">
                 <ul>
-                    <li><a href="#" id="disclaimer-home-link">Disclaimer</a></li>
-                    <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="faq-home-link">FAQ</a></li>
-                    <li><a href="#" id="our-story-home-link">Our Story</a></li>
+                    <li><a href="#" id="disclaimer-home-link" title="Disclaimer">Disclaimer</a></li>
+                    <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="faq-home-link" title="FAQ">FAQ</a></li>
+                    <li><a href="#" id="our-story-home-link" title="Our Story">Our Story</a></li>
                 </ul>
             </div>
         </div>
