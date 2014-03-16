@@ -559,7 +559,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini{*padding-top:1px;*padding-
 .btn-group>.btn{position:relative;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 .btn-group>.btn+.btn{margin-left:-1px}
 .btn-group>.btn,.btn-group>.dropdown-menu,.btn-group>.popover{font-size:12px}
-.btn-group>.btn-mini{font-size:9px}
+.btn-group>.btn-mini{font-size:11px}
 .btn-group>.btn-small{font-size:10.2px}
 .btn-group>.btn-large{font-size:15px}
 .btn-group>.btn:first-child{margin-left:0;-webkit-border-top-left-radius:4px;-moz-border-radius-topleft:4px;border-top-left-radius:4px;-webkit-border-bottom-left-radius:4px;-moz-border-radius-bottomleft:4px;border-bottom-left-radius:4px}
