@@ -9,7 +9,7 @@ echo $head;
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="#">Sneezy T</a>
+            <a class="brand" href="<?php echo base_url(); ?>">Sneezy T</a>
         </div>
     </div>
 </div>

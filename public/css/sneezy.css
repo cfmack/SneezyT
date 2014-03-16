@@ -295,6 +295,11 @@ label {
     width: 40px;
 }
 
+#create-user-container a {
+    color: purple;
+    text-decoration: underline;
+}
+
 #current-person-notification {
     padding: 10px 15px;
     float: right;

@@ -9,7 +9,7 @@ echo $head;
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="#">Sneezy T</a>
+            <a class="brand" href="<?php echo base_url();?>">Sneezy T</a>
         </div>
     </div>
 </div>
@@ -44,6 +44,10 @@ echo $head;
             <div class="ui-widget">
                 <?php echo lang('create_user_password_confirm_label', 'password_confirm');?>
                 <?php echo form_input($password_confirm);?>
+            </div>
+            <div class="ui-widget">
+                    <label for="agree_to_terms"><a href="<?php echo base_url();?>index.php/welcome/disclaimer" target="_blank">Agree To Terms</a></label>
+                    <input id="agree_to_terms" name="agree_to_terms" type="checkbox"/>
             </div>
         </fieldset>
 
