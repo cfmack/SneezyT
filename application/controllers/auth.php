@@ -27,10 +27,11 @@ class Auth extends CI_Controller {
 
 		if (!$this->ion_auth->logged_in())
 		{
-			//redirect them to the login page
-			redirect('auth/login', 'refresh');
+			//redirect them to the login page by passing in some messages
+            $message = filter_var($this->session->flashdata('message'), FILTER_SANITIZE_STRING);
+            redirect("auth/login/$message/", 'refresh');
 		}
-		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want to enable this for non-admins
+		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want ••••••••to enable this for non-admins
 		{
 			//redirect them to the home page because they must be an administrator to view this
 			return show_error('You must be an administrator to view this page.');
@@ -51,8 +52,13 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	//log the user in
-	function login()
+
+    /**
+     * Perform or display the login
+     *
+     * @param string $passed_messages - passed in messages via the URI
+     */
+    function login($passed_messages='')
 	{
         if ($this->ion_auth->logged_in())
         {
@@ -82,7 +88,7 @@ class Auth extends CI_Controller {
 			{
 				//if the login was un-successful
 				//redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+                $this->session->set_flashdata('message', $this->ion_auth->errors());
 				redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
@@ -90,7 +96,15 @@ class Auth extends CI_Controller {
 		{
 			//the user is not logging in so display the login page
 			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+            $this->data['message'] = validation_errors();
+            $this->data['message'] .= $this->session->flashdata('message');
+
+            // if something is passed in via the URL, display that too
+            if ($passed_messages)
+            {
+                $this->data['message'] .=  '<p>' . urldecode($passed_messages) . '</p>';
+            }
 
 			$this->data['identity'] = array('name' => 'identity',
 				'id' => 'identity',
@@ -346,7 +360,7 @@ class Auth extends CI_Controller {
 		if ($activation)
 		{
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
+      		$this->session->set_flashdata('message', $this->ion_auth->messages());
 			redirect("auth", 'refresh');
 		}
 		else
