@@ -15,20 +15,20 @@
             <!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="">
 				<ul class="nav primary">
-				      <li><a href="#" id="nav-food" class="primary-tab" >Food</a></li>
-				      <li><a href="#" id="nav-reaction" class="primary-tab">Reaction</a></li>
-				      <li><a href="#" id="nav-environment" class="primary-tab">Environment</a></li>
-				      <li><a href="#" id="nav-treatment" class="primary-tab">Treatment</a></li>
+				      <li><a href="#" id="nav-food" class="primary-tab" ><i class="fa fa-cutlery"></i>Food</a></li>
+				      <li><a href="#" id="nav-reaction" class="primary-tab"><i class="fa fa-frown-o"></i>Reaction</a></li>
+				      <li><a href="#" id="nav-environment" class="primary-tab"><i class="fa fa-cloud"></i>Environment</a></li>
+				      <li><a href="#" id="nav-treatment" class="primary-tab"><i class="fa fa-medkit"></i>Treatment</a></li>
                 </ul>
                 <ul class="nav secondary">
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="#navbar-more">
-                            Menu
                             <b class="caret"></b>
+                            Menu
                         </a>
                         <ul class="dropdown-menu">
                             <li class="divider"></li>
-                            <li><a href="#" id="nav-hours-from-reaction" class="secondary-tab">Food Analyzer</a></li>
+                            <li><a href="#" id="nav-hours-from-reaction" class="secondary-tab"><i class="fa fa-search"></i>Food Analyzer</a></li>
                                   <?php
                                     if ($is_admin)
                                     {
@@ -36,17 +36,17 @@
                                         echo '<li><a href="#" id="nav-type-merge" class="secondary-tab" >Merge Types</a></li>';
                                     }
                                   ?>
-                                    <li><a href="#" id="nav-calendar" class="secondary-tab">Calendar</a></li>
+                                    <li><a href="#" id="nav-calendar" class="secondary-tab"><i class="fa fa-calendar"></i>Calendar</a></li>
 
                             <li class="divider"></li>
-     				        <li><a href="#" id="nav-person" class="secondary-tab"><i class="i"></i> Person Admin</a></li>
-                            <li><a href="#"  id="nav-person-change" class="secondary-tab"><i class="i"></i> Change Person</a></li>
+     				        <li><a href="#" id="nav-person" class="secondary-tab"><i class="fa fa-user"></i>Person Admin</a></li>
+                            <li><a href="#"  id="nav-person-change" class="secondary-tab"><i class="fa fa-group"></i>Change Person</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"  id="nav-disclaimer" class="secondary-tab"><i class="i"></i> Disclaimer</a></li>
-                            <li><a href="#"  id="nav-license" class="secondary-tab"><i class="i"></i> License</a></li>
-                            <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="nav-faq" class="secondary-tab"><i class="i"></i> FAQ</a></li>
-                            <li><a href="#"  id="nav-our-story" class="secondary-tab"><i class="i"></i> Our Story</a></li>
-                            <li><a href="http://sneezyt.wordpress.com/"  target="_blank"  id="nav-blog" class="secondary-tab"><i class="i"></i> Blog</a></li>
+                            <li><a href="#"  id="nav-disclaimer" class="secondary-tab"><i class="fa fa-gavel"></i>Disclaimer</a></li>
+                            <li><a href="#"  id="nav-license" class="secondary-tab"><i class="fa fa-file"></i>License</a></li>
+                            <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="nav-faq" class="secondary-tab"><i class="fa fa-question"></i>FAQ</a></li>
+                            <li><a href="#"  id="nav-our-story" class="secondary-tab"><i class="fa fa-book"></i>Our Story</a></li>
+                            <li><a href="http://sneezyt.wordpress.com/"  target="_blank"  id="nav-blog" class="secondary-tab"><i class="fa fa-pagelines"></i>Blog</a></li>
                         </ul>
                     </li>
 				</ul>

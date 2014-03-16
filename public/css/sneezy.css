@@ -364,6 +364,34 @@ label {
     color: purple;
 }
 
+.nav .fa {
+    padding-right: 4px;
+}
+
+ul.primary .fa-cutlery,
+ul.primary .fa-medkit,
+ul.primary .fa-medkit,
+ul.primary .fa-cloud,
+ul.primary .fa-frown-o {
+    color: white;
+}
+
+ul.secondary .fa-cutlery,
+ul.secondary .fa-medkit,
+ul.secondary .fa-medkit,
+ul.secondary .fa-cloud,
+ul.secondary .fa-frown-o {
+    color: inherit;
+}
+
+ul.primary .active .fa-cutlery,
+ul.primary .active .fa-medkit,
+ul.primary .active .fa-cloud,
+ul.primary .active .fa-frown-o,
+ul.primary a:hover > i {
+    color: #F5B843;
+}
+
 .navbar-inner .container {
     /*overflow: hidden;*/
     height: 40px;
