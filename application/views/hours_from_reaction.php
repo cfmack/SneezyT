@@ -8,7 +8,7 @@
                         <input id="hours-from-reaction-type" value="Vomit" />
                 </div>
                 <div class="ui-widget">
-                    <label for="hours-from-reaction-gap">Num Of Gaps: </label>
+                    <label for="hours-from-reaction-gap">Num Of Time Samples: </label>
                     <input id="hours-from-reaction-gap" value="2"/>
                 </div>
                 <div class="ui-widget">
@@ -36,7 +36,7 @@
                     <input id="hours-from-reaction-min-eaten" value="0"/>
                 </div>
                 <div class="ui-widget">
-                    <label for="hours-from-reaction-scale">Scale: </label>
+                    <label for="hours-from-reaction-scale">Sample Rate: </label>
                     <select id = "hours-from-reaction-scale">
                         <option value = "linear" selected>Linear</option>
                         <option value = "quadratic">Quadratic</option>
