@@ -304,7 +304,11 @@ class MY_Controller extends CI_Controller {
         $json = $this->load->view('inventory_json', array('type'=>ucfirst($this->name)), true);
 		$category_data['section']['inventory'] = $this->load->view('inventory_view', array('name'=>$this->name, 'json'=>$json), true);
 
-        $category_data['section']['download'] = $this->load->view('category_download_view', array('name'=>$this->name), true );
+        $category_data['section']['download'] = $this->load->view('category_download_view', array(
+                                                'name'=>$this->name,
+                                                'header'=>$this->build_header(),
+                                                'icon'=>$this->icon),
+                                            true );
 
         $this->load->view('category_view', $category_data);
 	}

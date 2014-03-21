@@ -1,4 +1,5 @@
 <div>
+    <h1 class="visible-phone"><i class="fa <?php echo $icon; ?>"></i> <?php echo $header; ?></h1>
 	<form action="post">
         <fieldset class="add-inputs">
             <div id="<?php echo $name; ?>-download-start-container" class="ui-widget visible-desktop visible-tablet">
