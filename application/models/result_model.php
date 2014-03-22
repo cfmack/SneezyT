@@ -224,7 +224,7 @@ SQL;
 
         if ($food_filter != self::NO_FILTER)
         {
-            $sub .= " WHERE FoodName LIKE '$food_filter' ";
+            $sub .= " AND FoodName LIKE '$food_filter' ";
         }
 
         $sub .= " GROUP BY FoodName ";
