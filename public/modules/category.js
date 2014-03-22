@@ -47,7 +47,7 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
             },
             add : function _category_add(type) {
                 // date picker
-                if (window.screen.availWidth > 960) {
+                if (window.screen.availWidth > 800) {
                     var jqDate = $('#' + type +'-date').datetimepicker({
                         timeFormat: "hh:mm tt"
                     });
@@ -83,7 +83,7 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
             download : function _category_download(type) {
 
                 // date picker
-                if (window.screen.availWidth > 960) {
+                if (window.screen.availWidth > 800) {
                     var startDate = $('#' + type +'-download-start').datepicker({
                         timeFormat: "hh:mm tt"
                     });
@@ -95,7 +95,7 @@ define(["jquery-ui", "bootstrap", "timepicker", "jtable", "modules/submit"], fun
                 }
 
                 // date picker
-                if (window.screen.availWidth > 960) {
+                if (window.screen.availWidth > 800) {
                     var endDate = $('#' + type +'-download-end').datepicker({
                         timeFormat: "hh:mm tt"
                     });
