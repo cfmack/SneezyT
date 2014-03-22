@@ -20,7 +20,9 @@
     <div id='change-person-submit' >
         <button class="btn btn-primary" type="button">Update</button>
     </div>
-    <div id="person-change-response"  class="alert_response"></div>
+    <div class="alert-container">
+        <div id="person-change-response"  class="alert_response"></div>
+    </div>
 </div>
 <script>
 require(["modules/person"], function(person) {

@@ -31,8 +31,9 @@
         <div id="person-grid"></div>
     </div>
 </div>
-
-<div id="person-response"></div>
+<div class="alert-container">
+        <div id="person-response" class="alert_response"></div>
+</div>
 <script>
     require(["modules/person"], function(person) {
         person.add();

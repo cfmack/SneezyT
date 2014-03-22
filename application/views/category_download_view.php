@@ -32,7 +32,9 @@
         </fieldset>
 	</form>
 </div>
-<div id="<?php echo $name; ?>-email-response" class="alert_response"></div>
+<div class="alert-container">
+    <div id="<?php echo $name; ?>-email-response" class="alert_response"></div>
+</div>
 <script>
   	require(["modules/category"], function(category) {
         category.download('<?php echo $name; ?>');

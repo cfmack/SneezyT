@@ -35,7 +35,9 @@
             </div>
         </fieldset>
 	</form>
-	<div id="<?php echo $name; ?>-response" class="alert_response"></div>
+    <div class="alert-container">
+	    <div id="<?php echo $name; ?>-response" class="alert_response"></div>
+    </div>
 </div>
 <script>
   	require(["modules/category"], function(category) {

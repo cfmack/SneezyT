@@ -33,7 +33,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             $('#' + type + '-response').load(base_url + 'index.php/' + type + '/insert',p,function(str){
                 setTimeout(function() {
                     $('#' + type + '-response').empty();
-                } ,1500);
+                } ,4000);
             });
 
             $( '#' + type + '-note').val('');
@@ -68,7 +68,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                 $('#' + type + '-email-response').load(base_url + 'index.php/' + type + '/email/' + p[type + '-start'] + '/' + p[type + '-end'] + '/', p,function(str){
                     setTimeout(function() {
                         $('#' + type + '-email-response').empty();
-                    } ,1500);
+                    } ,4000);
                 });
             }
         },
@@ -81,7 +81,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             $('#merge-response').load(base_url + 'index.php/maintain/merge',p,function(str){
                 setTimeout(function() {
                     $('#merge-response').empty();
-                } ,1500);
+                } ,4000);
             });
 
             $( '#type-merge-to').val('');
@@ -124,7 +124,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
 
                 setTimeout(function() {
                     $('#person-change-response').empty();
-                } ,1500);
+                } ,4000);
             });
         }
 
