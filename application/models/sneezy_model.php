@@ -238,14 +238,15 @@ SQL;
 	}
 
     /**
-     * Get all inventory in a list
-     * @param string $index
-     * @param unknown_type $page_size
-     * @param unknown_type $sort
+     * Get a downloaded list of food
+     * @param DateTime $start_date
+     * @param DateTime $end_date note that we add a day in the query to the End Date.  This makes the end date inclusive
      */
     public function download($start_date, $end_date)
     {
         $start = $start_date->format("Y-m-d");
+
+        $end_date->add(new DateInterval('P1D'));
         $end = $end_date->format("Y-m-d");
 
         $person = $this->Person_model->get_active_person();
