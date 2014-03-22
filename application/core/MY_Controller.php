@@ -132,7 +132,9 @@ class MY_Controller extends CI_Controller {
 		}
 		
 		$result = $this->$model->inventory($index, $page_size, trim($sort));
-		$data['json'] = array("Result" => "OK", "Records" => $result );
+        $count = $this->$model->inventory_count();
+
+		$data['json'] = array("Result" => "OK", "Records" => $result, "TotalRecordCount"=>$count );
 		$this->load->view('json_encode', $data);
 	}
 	

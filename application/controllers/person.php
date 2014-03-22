@@ -87,7 +87,8 @@ class Person extends CI_Controller {
 
 
         $result = $this->Person_model->inventory($index, $page_size, $sort);
-        $data['json'] = array("Result" => "OK", "Records" => $result );
+        $count = $this->Person_model->inventory_count();
+        $data['json'] = array("Result" => "OK", "Records" => $result, "TotalRecordCount"=>$count  );
         $this->load->view('json_encode', $data);
     }
 

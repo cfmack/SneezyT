@@ -238,6 +238,24 @@ SQL;
 	}
 
     /**
+     * Get total count for what's in the inventory inventory in a list
+     * @param unknown_type $index
+     * @param unknown_type $page_size
+     * @param unknown_type $sort
+     */
+    public function inventory_count()
+    {
+        $person = $this->Person_model->get_active_person();
+
+        $this->db->from($this->table . ' i')
+            ->join($this->table . 'Type t', 'i.'.$this->table.'TypeId = t.'. $this->table .'TypeId')
+            ->where('i.IsDeleted', 0)
+            ->where('i.PersonId', $person['person_id']);
+
+        return $this->db->count_all_results();
+    }
+
+    /**
      * Get a downloaded list of food
      * @param DateTime $start_date
      * @param DateTime $end_date note that we add a day in the query to the End Date.  This makes the end date inclusive

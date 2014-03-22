@@ -94,6 +94,24 @@ class Person_model extends CI_Model {
 	}
 
     /**
+     * Get total count for what's in the inventory inventory in a list
+     * @param unknown_type $index
+     * @param unknown_type $page_size
+     * @param unknown_type $sort
+     */
+    public function inventory_count()
+    {
+        $person = $this->Person_model->get_active_person();
+
+        $id = (int) $this->ion_auth->user()->row()->id;
+        $this->db->from('Person p')
+            ->where('p.UserId', $id)
+            ->where('IsDeleted', 0);
+
+        return $this->db->count_all_results();
+    }
+
+    /**
      * Get the person for this user
      *
      * @param $id int - if false, returns the default user
