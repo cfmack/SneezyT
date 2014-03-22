@@ -199,5 +199,45 @@ SQL;
 		
 		return $query->result_array();
 	}
+
+    /**
+     * Query for the total number of records that you are analyzing.  This is used for pagination.
+     *
+     * @param $start_date
+     * @param $end_date
+     * @param $food_filter
+     * @param $min_eaten
+     * @return int
+     */
+    public function hours_from_reaction_count($start_date, $end_date, $food_filter, $min_eaten)
+    {
+        $person = $this->Person_model->get_active_person();
+        $person_id = intval($person['person_id']);
+
+        $sub  = "SELECT COUNT(FoodId)";
+        $sub .= " FROM Food AS f JOIN FoodType ft ON ft.FoodTypeId = f.FoodTypeId  ";
+        $sub .= " WHERE FoodDate >= '$start_date' ";
+        $sub .= " AND FoodDate <= '$end_date' ";
+        $sub .= " AND PersonId = $person_id ";
+        $sub .= " AND f.IsDeleted = 0 ";
+        $sub .= " AND ft.IsDeleted = 0 ";
+
+        if ($food_filter != self::NO_FILTER)
+        {
+            $sub .= " WHERE FoodName LIKE '$food_filter' ";
+        }
+
+        $sub .= " GROUP BY FoodName ";
+        $sub .= " HAVING COUNT(FoodId) >= $min_eaten ";
+
+        $select = "SELECT COUNT( * ) AS cnt FROM ( ";
+        $select .= $sub;
+        $select .= ") AS GroupSelect ";
+
+        $query = $this->db->query($select);
+        $row = $query->first_row();
+
+        return $row->cnt;
+    }
 	
 }

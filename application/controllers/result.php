@@ -141,9 +141,10 @@ class Result extends CI_Controller {
         // build json for jTables
 		$json = array();
 		$json['Result'] = "OK";
-		$json['Records'] = $this->Result_model->hours_from_reaction($index, $page_size, $num_of_gaps, $scale, $sort, $start_date->format('Y-m-d'), $end_date->format('Y-m-d'), $id, $min_eaten, $initial_hour, $food_filter);
-		
-		$data = array();
+        $json['Records'] = $this->Result_model->hours_from_reaction($index, $page_size, $num_of_gaps, $scale, $sort, $start_date->format('Y-m-d'), $end_date->format('Y-m-d'), $id, $min_eaten, $initial_hour, $food_filter);
+        $json['TotalRecordCount'] = $this->Result_model->hours_from_reaction_count($start_date->format('Y-m-d'), $end_date->format('Y-m-d'), $food_filter, $min_eaten);
+
+        $data = array();
 		$data['json'] = $json;
 		
 		$this->load->view('json_encode', $data);
