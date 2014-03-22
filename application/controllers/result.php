@@ -125,7 +125,8 @@ class Result extends CI_Controller {
 
 		$start_date = DateTime::createFromFormat('m-d-Y', $start_date);
 		$end_date = DateTime::createFromFormat('m-d-Y', $end_date);
-		
+        $end_date->add(new DateInterval('P1D')); // making the end date inclusive
+
 		$type = filter_var($type, FILTER_SANITIZE_STRING);
 		$type = urldecode($type);
 
