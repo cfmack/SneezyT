@@ -124,6 +124,28 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
             }
         },
 
+        feedback : function _submit_feedback() {
+            var p = {};
+            p['feedback'] = $('#feedback-comment').val();
+
+            if (p['feedback']) {
+
+                $('#feedback-response').load(base_url + 'index.php/feedback/submit',p,function(str){
+                    setTimeout(function() {
+                        $('#feedback-response').empty();
+                    } ,4000);
+                });
+
+                $('#feedback-response').val('');
+
+            } else {
+
+                $('#feedback-response').html('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a>' +
+                    '<span>Please add your feedback</span></div>');
+
+            }
+        },
+
         change_person : function _submit_change_person() {
             var p = {};
 

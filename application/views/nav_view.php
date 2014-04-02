@@ -42,6 +42,7 @@
      				        <li><a href="#" id="nav-person" class="secondary-tab" title="Person Admin"><i class="fa fa-user"></i>Person Admin</a></li>
                             <li><a href="#"  id="nav-person-change" class="secondary-tab" title="Change Person"><i class="fa fa-group"></i>Change Person</a></li>
                             <li class="divider"></li>
+                            <li><a href="#"  id="nav-feedback" class="secondary-tab" title="Feedback"><i class="fa fa-comment-o"></i>Feedback</a></li>
                             <li><a href="#"  id="nav-disclaimer" class="secondary-tab" title="Disclaimer"><i class="fa fa-gavel"></i>Disclaimer</a></li>
                             <li><a href="#"  id="nav-license" class="secondary-tab" title="License"><i class="fa fa-file"></i>License</a></li>
                             <li><a href="https://github.com/cfmack/SneezyT/wiki/FAQ" target="_blank" id="nav-faq" class="secondary-tab" title="FAQ"><i class="fa fa-question"></i>FAQ</a></li>
@@ -77,6 +78,7 @@
     <div id="container-person-change"  class="content-category-container hide"></div>
     <div id="container-license"  class="content-category-container hide"></div>
     <div id="container-disclaimer"  class="content-category-container hide"></div>
+    <div id="container-feedback"  class="content-category-container hide"></div>
     <div id="container-our-story"  class="content-category-container hide"></div>
 </div>
 <script>
