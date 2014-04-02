@@ -136,7 +136,7 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
                     } ,4000);
                 });
 
-                $('#feedback-response').val('');
+                $('#feedback-comment').val('');
 
             } else {
 
