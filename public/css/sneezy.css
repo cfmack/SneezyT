@@ -431,6 +431,11 @@ ul.primary a:hover > i {
     list-style-image: none;
 }
 
+.feedback-phone-header {
+    text-align: left;
+    margin-left: 20px;
+}
+
 /* hack to bring Bootstrap 3 panels to Bootstrap 2 */
 .panel {
     margin-bottom: 20px;

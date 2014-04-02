@@ -4,7 +4,7 @@
             <h1><i class="fa fa-comment-o"></i> Feedback</h1>
             We value your feedback as we are doing this for the community at large.   If you have suggests or feed back, you can file a <a href="https://github.com/cfmack/SneezyT/wiki/FAQ#when-reporting-a-bug" target="_blank">bug report</a> or submit add a comment on this form.
         </div>
-        <h1 class="visible-phone"><i class="fa fa-comment-o"></i> Feedback</h1>
+        <h1 class="visible-phone feedback-phone-header"><i class="fa fa-comment-o"></i> Feedback</h1>
         <div class="category-inner-right">
             <form action="post">
                 <fieldset  class="add-inputs">
