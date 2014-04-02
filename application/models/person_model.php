@@ -183,8 +183,8 @@ class Person_model extends CI_Model {
         }
 
         $data = array(
-            'PersonNote' => $person_note,
-            'PersonName' => $person_name,
+            'PersonNote' => filter_var($person_note,FILTER_SANITIZE_STRING),
+            'PersonName' => filter_var($person_name,FILTER_SANITIZE_STRING),
             'IsDefault' => $is_default
         );
 

@@ -88,8 +88,8 @@ class Sneezy_model extends CI_Model {
 		$data = array(
 				$this->table  . 'TypeId' => $type_id ,
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
-				$this->table  . 'Note' => $note,
-                $this->table  . 'Amount' => $amount,
+				$this->table  . 'Note' => $this->cleanse_string($note),
+                $this->table  . 'Amount' => $this->cleanse_string($amount),
                 'PersonId' => $person['person_id']
 		);
 		
@@ -112,6 +112,8 @@ class Sneezy_model extends CI_Model {
             log_message('error', 'Could not find user id', true);
             throw new Exception('Could not find user id');
         }
+
+        $term = $this->cleanse_string($term);
 
 		$this->db->select($this->table . 'TypeId, IsDeleted');
         $this->db->from($this->table . 'Type');
@@ -157,7 +159,20 @@ class Sneezy_model extends CI_Model {
 
 		return $row->$column_name;
 	}
-	
+
+    /**
+     * Quick and dirty function to cleanse a string
+     *
+     * @todo replace with CodeIgnitor input validator
+     * @param $s
+     * @return mixed
+     */
+    private function cleanse_string($s)
+    {
+        return filter_var($s, FILTER_SANITIZE_STRING);
+    }
+
+
 	/**
 	 * Persist this change of this type table to be from and to
 	 * 
@@ -325,9 +340,9 @@ SQL;
         $person = $this->Person_model->get_active_person();
 
         $data = array(
-           		$this->table . 'Note' => $note,
+           		$this->table . 'Note' => $this->cleanse_string($note),
 				$this->table  . 'Date' => $date->format("Y-m-d H:i:s"),
-                $this->table . 'Amount' => $amount
+                $this->table . 'Amount' => $this->cleanse_string($amount)
 	        );
 
         $this->db->where($this->table . 'Id', intval($id));
