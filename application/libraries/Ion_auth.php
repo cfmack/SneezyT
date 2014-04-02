@@ -513,4 +513,14 @@ class Ion_auth
 		return $check_all;
 	}
 
+    /**
+     * Interface to return all active users
+     * @return mixed
+     */
+    public function count_active_users()
+    {
+        return $this->ion_auth_model->count_active_users();
+    }
+
+
 }

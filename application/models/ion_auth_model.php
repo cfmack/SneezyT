@@ -2071,6 +2071,21 @@ class Ion_auth_model extends CI_Model
 		}
 	}
 
+
+    /**
+     * Count the number of active users
+     *
+     * @return mixed
+     */
+    public function count_active_users()
+    {
+        $this->db->from('users u')
+            ->where('u.active', 1);
+
+        return $this->db->count_all_results();
+    }
+
+
 	protected function _filter_data($table, $data)
 	{
 		$filtered_data = array();
