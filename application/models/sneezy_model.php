@@ -115,14 +115,14 @@ class Sneezy_model extends CI_Model {
 
         $term = $this->cleanse_string($term);
 
-		$this->db->select($this->table . 'TypeId, IsDeleted');
+        $this->db->select($this->table . 'TypeId, IsDeleted');
         $this->db->from($this->table . 'Type');
         $this->db->where($this->table . 'Name', $term);
         $this->db->where('(UserId IS NULL OR UserId = ' . intval($userId) . ') ');
 
         $query = $this->db->get();
 		$row = $query->first_row();
-		
+
 		$column_name = $this->table . 'TypeId';
 		
 		$is_deleted = false;
@@ -137,7 +137,7 @@ class Sneezy_model extends CI_Model {
 			log_message('error', $this->table . ' already soft deleted this term: ' . $term);
 			return false;
 		}
-		
+
 		if (!isset($row->$column_name) || $row->$column_name == null)
 		{
 			if ($insert)
@@ -147,13 +147,14 @@ class Sneezy_model extends CI_Model {
                         'UserId' => $userId
 
 				);
-				
+
 				if($this->db->insert($this->table . 'Type', $data))
 				{
 					return $this->db->insert_id();
 				}
+
 			}
-			
+
 			return false;
 		}	
 

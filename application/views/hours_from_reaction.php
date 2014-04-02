@@ -1,5 +1,25 @@
 <div id="hours-from-reaction-controls">
-	<h1>Reaction to Food by Hour</h1>
+	<h1><i class="fa fa-search"></i> Food Analyzer</h1>
+    <h3></h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">Reaction to Food by Hour</div>
+        <div class="panel-body">
+        <p>
+            This application allows a user to explore relationships between food, reaction, and time.  You need to pick any Reaction (“Vomit”) and hit enter.  The rest of the options are for additional filtering, which I invite you to play with.
+
+            You will be presented with a list of:
+            <ol>
+                <li>The food consumed</li>
+                <li>The times consumed</li>
+                <li>The number of times the person had a reaction within the time frame from consuming the food</li>
+                <li>The percentage of times the person had a reaction within the time frame from consuming the food</li>
+            </ol>
+        </p>
+        <p>
+            Using a view like this, I personally discovered that 90% of the time my son was vomiting within several hours of consuming coconut.   Data can say anything you want it to, so be careful.   This is not meant to be a diagnose but a tool to help pivot the data in ways you might not expect.
+        </p>
+        </div>
+    </div>
 	<form action="post">
         <fieldset class="long-inputs">
             <div class="float-left">
@@ -8,8 +28,8 @@
                         <input id="hours-from-reaction-type" value="Vomit" />
                 </div>
                 <div class="ui-widget">
-                    <label for="hours-from-reaction-gap">Num Of Time Samples: </label>
-                    <input id="hours-from-reaction-gap" value="2"/>
+                    <label for="hours-from-reaction-gap">Time Samples: </label>
+                    <input id="hours-from-reaction-gap" value="3"/>
                 </div>
                 <div class="ui-widget">
                     <label for="hours-from-reaction-initial-hour">Initial Hour: </label>
@@ -33,7 +53,7 @@
             <div class="float-left">
                 <div class="ui-widget">
                     <label for="">Min total times eaten: </label>
-                    <input id="hours-from-reaction-min-eaten" value="0"/>
+                    <input id="hours-from-reaction-min-eaten" value="1"/>
                 </div>
                 <div class="ui-widget">
                     <label for="hours-from-reaction-scale">Sample Rate: </label>

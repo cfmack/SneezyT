@@ -133,9 +133,8 @@ class Result extends CI_Controller {
         $food_filter = urldecode($food_filter);
         $food_filter = filter_var($food_filter, FILTER_SANITIZE_STRING);
 
-
         $this->load->model('Reaction_model');
-        $id = $this->Reaction_model->get_type_id($type);
+        $id = $this->Reaction_model->get_type_id($type, false);
 
         $this->load->model('Result_model');
 
