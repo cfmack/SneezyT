@@ -20,25 +20,36 @@ define(["jquery-ui", "bootstrap"], function ($, bootstrap) {
         add : function _submit_add(type) {
             var p = {};
             p[type] = $('#' + type + '-types').val();
-            p[type + '-date'] = $('#' + type + '-date').val();
-            if ($('#' + type + '-date-container').is(':visible')) {
+
+            if (p[type]) {
                 p[type + '-date'] = $('#' + type + '-date').val();
-            }
-            else {
-                p[type + '-date'] = $('#' + type + '-date-wheel').val();
-            }
-            p[type + '-note'] = $('#' + type + '-note').val();
-            p[type + '-amount'] = $('#' + type + '-amount').val();
 
-            $('#' + type + '-response').load(base_url + 'index.php/' + type + '/insert',p,function(str){
-                setTimeout(function() {
-                    $('#' + type + '-response').empty();
-                } ,4000);
-            });
+                if ($('#' + type + '-date-container').is(':visible')) {
+                    p[type + '-date'] = $('#' + type + '-date').val();
+                }
+                else {
+                    p[type + '-date'] = $('#' + type + '-date-wheel').val();
+                }
+                p[type + '-note'] = $('#' + type + '-note').val();
+                p[type + '-amount'] = $('#' + type + '-amount').val();
 
-            $( '#' + type + '-note').val('');
-            $( '#' + type + '-amount').val('');
-            $( '#' + type + '-types').val('').focus();
+                $('#' + type + '-response').load(base_url + 'index.php/' + type + '/insert',p,function(str){
+                    setTimeout(function() {
+                        $('#' + type + '-response').empty();
+                    } ,4000);
+                });
+
+                $( '#' + type + '-note').val('');
+                $( '#' + type + '-amount').val('');
+                $( '#' + type + '-types').val('').focus();
+            } else {
+
+                $('#' + type + '-response').html('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a>' +
+                    '<span>Please add a ' +
+                    type +
+                    '</span></div>');
+
+            }
         },
 
         download : function _submit_download(type, action) {
