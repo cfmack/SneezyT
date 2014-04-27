@@ -176,7 +176,7 @@ $config['error_end_delimiter']     = '</p>';	// Error mesage end delimiter
  | Registration options
  | -------------------------------------------------------------------------
  */
-$config['registration_user_limit'] = 25;
+$config['registration_user_limit'] = 200;
 
 /* End of file ion_auth.php */
 /* Location: ./application/config/ion_auth.php */
