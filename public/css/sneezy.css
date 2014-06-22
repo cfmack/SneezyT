@@ -650,5 +650,13 @@ ul.primary a:hover > i {
     .category-add-container .visible-phone {
         padding-top: 5px;
     }
+
+    #create-user-container .ui-widget input {
+        width: 170px;
+    }
+
+    #create-user-container .long-inputs .ui-widget label {
+        width: 90px;
+    }
 }
 
