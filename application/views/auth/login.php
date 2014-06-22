@@ -39,6 +39,9 @@
               <div class="login-button-container" ><?php echo form_submit('submit', lang('login_submit_btn'));?></div>
 
             <?php echo form_close();?>
+            <div id="new-to-sneezy-button" class="pull-left visible-phone">
+                <button class="btn btn-success" type="button">New to Sneezy?</button>
+            </div>
             <div class="login-link-container" >
                 <a href="../auth/forgot_password"><?php echo lang('login_forgot_password');?></a><br />
                 <a href="../auth/create_user"><?php echo lang('login_register');?></a>
@@ -52,3 +55,10 @@
         </div>
     </div>
 </div>
+<script>
+    // kicking it old school as require.js settings are screwed up prior to log in
+    var b = document.getElementById("new-to-sneezy-button");
+    b.onclick = function () {
+        window.location.replace(base_url + 'index.php/welcome/newtosneezy');
+    };
+</script>

@@ -610,6 +610,26 @@ ul.primary a:hover > i {
 
 .panel-heading > h3 {line-height:20px;}
 
+#new-to-sneezy-button {
+    margin-left: 20px;
+    margin-top: 32px;
+}
+
+.new-to-sneezy-inner-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.outer-center {
+    width: 100%;
+}
+
+.outer-center .inner-center {
+    width: 50%;
+    margin: 0 auto;
+}
+
 /* phone view only */
 @media (max-width: 480px) {
     .blog {

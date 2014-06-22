@@ -163,4 +163,9 @@ class Welcome extends CI_Controller {
     {
         $this->load->view('our_story', array());
     }
+
+    public function newtosneezy()
+    {
+        $this->load->view('help/new_to_sneezy', array());
+    }
 }
